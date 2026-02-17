@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="101st Hunter Squadron - Elite DCS Virtual Fighter Squadron. There are 2 types of squadrons; Hunters and our targets.">
+    <meta name="keywords"
+        content="DCS, Digital Combat Simulator, Virtual Squadron, F-16, F-18, Fighter Squadron, 101st Hunter">
+    <meta name="author" content="101st Hunter Squadron">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="101st Hunter Squadron">
+    <meta property="og:description"
+        content="Elite DCS Virtual Fighter Squadron. There are 2 types of squadrons; Hunters and our targets.">
+    <meta property="og:image" content="assets/images/patch.png">
+    <meta property="og:type" content="website">
+
+    <title>101st Hunter Squadron | DCS Virtual Fighter Squadron</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/dragon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Intro Screen -->
+    <div class="intro" id="intro">
+        <div class="intro-content">
+            <img src="assets/images/dragon.png" alt="Dragon" class="intro-dragon">
+            <div class="intro-text">
+                <span class="intro-line1">101st</span>
+                <span class="intro-line2">Hunter Squadron</span>
+            </div>
+            <div class="intro-fire"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#home" class="nav-logo">
+                <img src="assets/images/dragon.png" alt="101st Hunter Squadron Dragon">
+                <span class="nav-logo-text">101st HUNTERS</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" data-i18n="nav_about">About</a></li>
+                <li><a href="#operations" data-i18n="nav_operations">Operations</a></li>
+                <li><a href="#academy">DCS Academy</a></li>
+                <li><a href="#leaderboard" data-i18n="web_lb_nav">Leaderboard</a></li>
+                <li><a href="#leadership" data-i18n="nav_leadership">Leadership</a></li>
+                <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+                <li><a href="#recruitment" class="nav-cta" data-i18n="nav_join">Join Us</a></li>
+            </ul>
+
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-dropdown-btn" id="langDropdownBtn" aria-label="Select language">
+                    <span class="lang-flag" id="langFlag">🇬🇧</span>
+                    <span class="lang-code" id="langCode">EN</span>
+                    <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="lang-dropdown-menu" id="langMenu">
+                    <button class="lang-option" data-lang="en">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span>English</span>
+                    </button>
+                    <button class="lang-option" data-lang="tr">
+                        <span class="lang-flag">🇹🇷</span>
+                        <span>Türkçe</span>
+                    </button>
+                    <button class="lang-option" data-lang="de">
+                        <span class="lang-flag">🇩🇪</span>
+                        <span>Deutsch</span>
+                    </button>
+                </div>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="assets/images/hero-bg.jpg" alt="F-16 Fighter Jet">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <img src="assets/images/dragon.png" alt="101st Hunter Squadron Dragon" class="hero-dragon">
+
+            <h1 class="hero-title">
+                <span class="line1">101st</span>
+                <span class="line2">Hunter Squadron</span>
+            </h1>
+
+            <p class="hero-motto" data-i18n="hero_motto">"There are 2 types of squadrons; Hunters and our targets."</p>
+
+            <div class="hero-buttons">
+                <a href="https://discord.com/invite/101huntersqn" target="_blank" rel="noopener"
+                    class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                    </svg>
+                    <span data-i18n="hero_discord">Join Discord</span>
+                </a>
+                <a href="#about" class="btn btn-secondary" data-i18n="hero_learn">Learn More</a>
+            </div>
+        </div>
+
+        <a href="#about" class="hero-scroll">
+            <span data-i18n="hero_scroll">Scroll</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+            </svg>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section parallax-section" id="about" data-bg="assets/images/gallery-1.jpg">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="assets/images/patch.png" alt="101st Hunter Squadron Patch">
+                </div>
+
+                <div class="about-content reveal">
+                    <h2 data-i18n="about_title">About <span>The Hunters</span></h2>
+                    <p data-i18n="about_p1">
+                        The 101st Hunter Squadron is an elite DCS virtual fighter squadron dedicated to
+                        delivering the ultimate combat flight simulation experience. Based in Adana, we bring
+                        together skilled pilots from around the world who share a passion for tactical excellence
+                        and authentic military aviation.
+                    </p>
+                    <p data-i18n="about_p2">
+                        We primarily operate the F-16 Fighting Falcon and F/A-18C Hornet, mastering both
+                        air-to-air combat and precision strike missions. Our squadron emphasizes teamwork,
+                        continuous training, and maintaining the highest standards of virtual combat proficiency.
+                    </p>
+
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🦅</div>
+                            <div>
+                                <h4 data-i18n="about_f16_title">F-16 Viper</h4>
+                                <p data-i18n="about_f16_desc">Multi-role excellence</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🐝</div>
+                            <div>
+                                <h4 data-i18n="about_f18_title">F/A-18 Hornet</h4>
+                                <p data-i18n="about_f18_desc">Carrier operations</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🐱</div>
+                            <div>
+                                <h4>F-14 Tomcat</h4>
+                                <p>Fleet defense interceptor</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">👻</div>
+                            <div>
+                                <h4>F-4 Phantom II</h4>
+                                <p>Legendary multi-role</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🦅</div>
+                            <div>
+                                <h4>F-15C/E Eagle</h4>
+                                <p>Air superiority &amp; strike</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🚁</div>
+                            <div>
+                                <h4>AH-64D &amp; Ka-50</h4>
+                                <p>Attack helicopters</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">✈️</div>
+                            <div>
+                                <h4>Su-27 / Su-33 / Su-25T</h4>
+                                <p>Russian fighters &amp; CAS</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🎯</div>
+                            <div>
+                                <h4 data-i18n="about_tactical_title">Tactical Focus</h4>
+                                <p data-i18n="about_tactical_desc">Real-world tactics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Status Section -->
+    <section class="server-status section" id="server-status">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle" data-i18n="server_subtitle">Live Servers (3)</span>
+                <h2 class="section-title" data-i18n="server_title">Server Status</h2>
+            </div>
+
+            <!-- Server Tab Buttons -->
+            <div class="server-tabs reveal" id="serverTabs">
+                <!-- Tabs will be injected by serverStatus.js -->
+            </div>
+
+            <!-- Server Content (for active server) -->
+            <div id="serverContent">
+                <div class="status-grid">
+                    <div class="status-card status-main reveal">
+                        <div class="status-indicator" id="serverIndicator">
+                            <span class="status-dot"></span>
+                            <span class="status-text" id="serverStatusText"
+                                data-i18n="server_checking">Checking...</span>
+                        </div>
+                        <h3 class="server-name" id="serverName">101st Hunter Squadron</h3>
+                        <p class="server-mission" id="serverMission" data-i18n="server_loading">Loading mission data...
+                        </p>
+                    </div>
+
+                    <div class="status-card status-map reveal">
+                        <div class="map-icon">🗺️</div>
+                        <div class="map-info">
+                            <span class="map-label" data-i18n="server_map">Current Map</span>
+                            <span class="map-name" id="serverMap">--</span>
+                        </div>
+                    </div>
+
+                    <div class="status-card status-players reveal">
+                        <div class="players-icon">👥</div>
+                        <div class="players-info">
+                            <span class="players-label" data-i18n="server_players">Players Online</span>
+                            <span class="players-count" id="serverPlayers">--</span>
+                        </div>
+                    </div>
+
+                    <div class="status-card status-time reveal">
+                        <div class="time-icon">⏰</div>
+                        <div class="time-info">
+                            <span class="time-label" data-i18n="server_time">Mission Time</span>
+                            <span class="time-value" id="serverTime">--:--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-list-container reveal" id="playerListContainer" style="display: none;">
+                    <h4 data-i18n="server_player_list">Online Pilots</h4>
+                    <div class="player-list" id="playerList"></div>
+                </div>
+
+                <div class="server-weather-section reveal" id="serverWeather" style="display: none;"></div>
+                <div class="server-slots-section reveal" id="serverSlots" style="display: none;"></div>
+                <div class="server-stats-section reveal" id="serverMissionStats" style="display: none;"></div>
+            </div>
+
+            <p class="status-note reveal" data-i18n="server_note">
+                Server data updates every 30 seconds. Join our Discord for real-time updates!
+            </p>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-section section" id="leaderboard">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle" data-i18n="web_lb_subtitle">Caucasus Extended Dynamic Campaign</span>
+                <h2 class="section-title" data-i18n="web_lb_title">🏆 Leaderboard</h2>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="lb-stats-row reveal" id="lbStatsRow">
+                <div class="lb-stat-card">
+                    <div class="lb-stat-icon">👤</div>
+                    <div class="lb-stat-label" data-i18n="web_lb_total">Toplam Oyuncu</div>
+                    <div class="lb-stat-value" id="lbTotalPlayers">--</div>
+                </div>
+                <div class="lb-stat-card">
+                    <div class="lb-stat-icon">👥</div>
+                    <div class="lb-stat-label" data-i18n="web_lb_active">Active Pilots</div>
+                    <div class="lb-stat-value" id="lbActivePilots">--</div>
+                </div>
+                <div class="lb-stat-card">
+                    <div class="lb-stat-icon">🔥</div>
+                    <div class="lb-stat-label" data-i18n="web_lb_highest">Highest Score</div>
+                    <div class="lb-stat-value" id="lbHighestScore">--</div>
+                </div>
+            </div>
+
+            <!-- Podium -->
+            <div class="lb-podium reveal" id="lbPodium">
+                <!-- Injected by leaderboard.js -->
+            </div>
+
+            <!-- Full Table -->
+            <div class="lb-table-wrapper reveal" id="lbTableWrapper">
+                <table class="lb-table" id="lbTable">
+                    <thead>
+                        <tr>
+                            <th data-i18n="web_lb_rank">#</th>
+                            <th data-i18n="web_lb_pilot">Pilot</th>
+                            <th data-i18n="web_lb_credits_col">Credits</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="lbTableBody">
+                        <!-- Injected by leaderboard.js -->
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="lb-update-note reveal" id="lbUpdateNote">
+                <span data-i18n="web_lb_auto_update">Auto-refreshes every 60 seconds</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Operations Section -->
+    <section class="operations section parallax-section" id="operations" data-bg="assets/images/gallery-2.jpg">
+        <div class="parallax-bg"></div>
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle" data-i18n="ops_subtitle">What We Do</span>
+                <h2 class="section-title" data-i18n="ops_title">Operations</h2>
+            </div>
+
+            <div class="ops-grid">
+                <div class="ops-card reveal">
+                    <div class="ops-icon">🎓</div>
+                    <h3 data-i18n="ops_training_title">Training</h3>
+                    <p data-i18n="ops_training_desc">
+                        Comprehensive training programs covering everything from basic flight
+                        fundamentals to advanced combat tactics. We ensure every pilot reaches
+                        their full potential.
+                    </p>
+                </div>
+
+                <div class="ops-card reveal">
+                    <div class="ops-icon">⚔️</div>
+                    <h3 data-i18n="ops_combat_title">Combat Missions</h3>
+                    <p data-i18n="ops_combat_desc">
+                        Regular combat missions featuring air superiority, strike packages,
+                        SEAD operations, and dynamic campaign scenarios against skilled opposition.
+                    </p>
+                </div>
+
+                <div class="ops-card reveal">
+                    <div class="ops-icon">🤝</div>
+                    <h3 data-i18n="ops_joint_title">Joint Operations</h3>
+                    <p data-i18n="ops_joint_desc">
+                        Collaborative exercises with other squadrons and communities. Experience
+                        large-scale battles and coordinated strikes that test your teamwork.
+                    </p>
+                </div>
+
+                <div class="ops-card reveal">
+                    <div class="ops-icon">🏆</div>
+                    <h3 data-i18n="ops_competitive_title">Competitive Events</h3>
+                    <p data-i18n="ops_competitive_desc">
+                        Participate in tournaments, red flag exercises, and competitive events
+                        where Hunters prove their dominance in the virtual skies.
+                    </p>
+                </div>
+
+                <div class="ops-card reveal">
+                    <div class="ops-icon">📡</div>
+                    <h3 data-i18n="ops_planning_title">Mission Planning</h3>
+                    <p data-i18n="ops_planning_desc">
+                        Detailed briefings, tactical planning sessions, and debriefs. Learn
+                        proper military planning procedures and execution strategies.
+                    </p>
+                </div>
+
+                <div class="ops-card reveal">
+                    <div class="ops-icon">🎮</div>
+                    <h3 data-i18n="ops_casual_title">Casual Flights</h3>
+                    <p data-i18n="ops_casual_desc">
+                        Not every sortie is serious! Enjoy casual flying, free flight sessions,
+                        and fun events with your fellow squadron members.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DCS Academy Section -->
+    <section class="academy section" id="academy">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle">Training Platform</span>
+                <h2 class="section-title">DCS <span>Academy</span></h2>
+            </div>
+
+            <div class="academy-grid reveal">
+                <div class="academy-info">
+                    <h3>101HUNTERSQN DCS Academy</h3>
+                    <p>F-16C, F/A-18C, F-14, F-4, F-15C/E, AH-64D, Ka-50, Su-25T, Su-33, Su-27 — 11 uçak modülü için
+                        kapsamlı eğitim platformumuz. Kokpit tanıtımı, quiz'ler,
+                        taktik okulları ve topluluk özellikleri ile pilotlarımızı en üst seviyeye taşıyoruz.</p>
+                    <div class="academy-features-list">
+                        <div class="academy-feat">📚 Etkileşimli Eğitim Modülleri</div>
+                        <div class="academy-feat">🧠 Quiz ve Bilgi Testleri</div>
+                        <div class="academy-feat">🎛️ Kokpit Tanıtımları</div>
+                        <div class="academy-feat">🎙️ Sesli Oda (Premium)</div>
+                        <div class="academy-feat">⚔️ 1v1 Düello Modu</div>
+                        <div class="academy-feat">📊 Pilot İstatistikleri</div>
+                    </div>
+                    <div class="academy-btns">
+                        <a href="#" class="store-badge" id="appStoreBtn" target="_blank" rel="noopener"
+                            title="App Store'dan İndir">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                <path
+                                    d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 21.99 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 21.99C7.79 22.03 6.8 20.68 5.96 19.47C4.25 16.56 2.93 11.3 4.7 7.72C5.57 5.94 7.36 4.86 9.28 4.83C10.56 4.81 11.78 5.7 12.56 5.7C13.34 5.7 14.85 4.63 16.39 4.8C17.03 4.83 18.83 5.07 19.92 6.75C19.82 6.82 17.56 8.14 17.58 10.91C17.61 14.21 20.45 15.27 20.48 15.28C20.46 15.35 20.01 16.84 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.09 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" />
+                            </svg>
+                            <div>
+                                <small>Download on the</small>
+                                <strong>App Store</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="store-badge" id="playStoreBtn" target="_blank" rel="noopener"
+                            title="Google Play'den İndir">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                <path
+                                    d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.698-2.302 2.698-2.302zM5.864 2.658L16.8 8.991l-2.302 2.302-8.634-8.635z" />
+                            </svg>
+                            <div>
+                                <small>GET IT ON</small>
+                                <strong>Google Play</strong>
+                            </div>
+                        </a>
+                        <a href="#" class="btn btn-secondary" id="webAppBtn">🌐 Web App</a>
+                    </div>
+                    <p
+                        style="text-align:center; margin-top:1.2rem; font-family:var(--font-display); font-size:0.8rem; color:var(--color-accent-gold); letter-spacing:1px; opacity:0.85;">
+                        ( Çok yakında sizlerle! )
+                    </p>
+                </div>
+                <div class="academy-mockup">
+                    <div class="mockup-phone">
+                        <div class="mockup-screen">
+                            <div class="mockup-header">
+                                <img src="assets/images/dragon.png" alt="" style="width:20px;height:20px;">
+                                <span>101HUNTERSQN</span>
+                            </div>
+                            <div class="mockup-item">📚 <span>Akademi</span></div>
+                            <div class="mockup-item">🧠 <span>Quiz</span></div>
+                            <div class="mockup-item">🎙️ <span>Sesli Oda</span></div>
+                            <div class="mockup-item">⚔️ <span>Düello</span></div>
+                            <div class="mockup-bar">
+                                <span>🛩️</span><span>📚</span><span>🧠</span><span>🎯</span><span>⚙️</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership section" id="leadership">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle" data-i18n="leadership_subtitle">Our Command</span>
+                <h2 class="section-title" data-i18n="leadership_title">Leadership</h2>
+            </div>
+
+            <div class="leaders-grid">
+                <div class="leader-card reveal">
+                    <div class="leader-avatar">O</div>
+                    <h3 class="leader-name">Onur</h3>
+                    <p class="leader-role" data-i18n="leader_onur_role">Squadron Owner</p>
+                    <div class="leader-socials">
+                        <a href="https://www.instagram.com/onurklc012" target="_blank" rel="noopener"
+                            aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@onurklc012" target="_blank" rel="noopener"
+                            aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@onurklc012" target="_blank" rel="noopener" aria-label="TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="leader-card reveal">
+                    <div class="leader-avatar">T</div>
+                    <h3 class="leader-name">TK</h3>
+                    <p class="leader-role" data-i18n="leader_tk_role">Squadron Co-Lead</p>
+                    <div class="leader-socials">
+                        <a href="https://discord.com/invite/101huntersqn" target="_blank" rel="noopener"
+                            aria-label="Discord">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle" data-i18n="gallery_subtitle">In Action</span>
+                <h2 class="section-title" data-i18n="gallery_title">Gallery</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item reveal">
+                    <img src="assets/images/AA_10.png" alt="F-16 Turkish Flag Livery - Top View">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/20260123220543_1.jpg" alt="F-16 HUNTERS Camo - In Flight">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/20260123220611_1.jpg" alt="Cockpit View - Turkish Helmet">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/AA_12.png" alt="F/A-18 HUNTERS Camo - In Flight">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/20260123220626_1.jpg" alt="F-16 Green Camo - 101 HUNTERS">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/20260123220516_1.jpg" alt="DCS Squadron Screenshot">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/AA_(2).png" alt="DCS Combat Screenshot">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/AA_(6)(2).png" alt="DCS Formation Flight">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/ADASDASDSA.png" alt="DCS Action Screenshot">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Adsz.png" alt="DCS Squadron Mission">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/CSACASCACSC.png" alt="DCS Air Combat">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/DASDASDA(1).png" alt="DCS Flight Screenshot">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Digital_Combat_Simulator_Black_Shark_Screenshot_2026.01.01_-_15.07.25.51.png"
+                        alt="DCS Black Shark Helicopter">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Ekran_görüntüsü_2025-12-31_19500.png" alt="DCS Screenshot">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Screen_260104_02351.jpg" alt="DCS Squadron Action">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Screen_260104_023536.jpg" alt="DCS Combat Mission">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Screen_260104_02355.jpg" alt="DCS Tactical Flight">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Screen_260104_02362.jpg" alt="DCS Fighter Jet">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Screen_260104_02365.jpeg" alt="DCS Formation">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Screen_260104_023659.jpg" alt="DCS Mission Screenshot">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/Screen_260104_024601.png" alt="DCS Night Mission">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/hero-bg.jpg" alt="F-16 HUNTERS Livery">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/gallery-1.jpg" alt="Cockpit View">
+                </div>
+                <div class="gallery-item reveal">
+                    <img src="assets/images/gallery-2.jpg" alt="F-16 with 101 Tail Art">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruitment Section -->
+    <section class="recruitment section" id="recruitment">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-subtitle" data-i18n="recruit_subtitle">Ready to Hunt? Or Become the Prey?</span>
+                <h2 class="section-title" data-i18n="recruit_title">Join The <span>Hunters</span></h2>
+            </div>
+
+            <p class="reveal" data-i18n="recruit_desc"
+                style="text-align: center; color: var(--color-text-secondary); font-size: var(--font-size-lg); max-width: 700px; margin: 0 auto var(--spacing-2xl);">
+                The 101st Hunter Squadron is actively recruiting motivated pilots who want to be part of
+                an elite virtual squadron. We're not looking for perfection — we're looking for dedication.
+            </p>
+
+            <div class="recruitment-requirements">
+                <div class="req-item reveal">
+                    <div class="req-icon">📅</div>
+                    <h4 data-i18n="recruit_attendance_title">Attendance</h4>
+                    <p data-i18n="recruit_attendance_desc">Be active and participate regularly in squadron events and
+                        missions.</p>
+                </div>
+
+                <div class="req-item reveal">
+                    <div class="req-icon">🎯</div>
+                    <h4 data-i18n="recruit_commitment_title">Commitment</h4>
+                    <p data-i18n="recruit_commitment_desc">Show dedication to improving your skills and supporting your
+                        wingmen.</p>
+                </div>
+
+                <div class="req-item reveal">
+                    <div class="req-icon">🤝</div>
+                    <h4 data-i18n="recruit_teamwork_title">Teamwork</h4>
+                    <p data-i18n="recruit_teamwork_desc">Work well with others and contribute positively to the squadron
+                        culture.</p>
+                </div>
+            </div>
+
+            <div class="recruitment-cta reveal" style="text-align: center;">
+                <a href="https://discord.com/invite/101huntersqn" target="_blank" rel="noopener"
+                    class="btn btn-primary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                    </svg>
+                    <span data-i18n="recruit_apply">Apply on Discord</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#home" class="footer-logo">
+                    <img src="assets/images/patch.png" alt="101st Hunter Squadron Patch">
+                </a>
+
+                <div class="footer-socials">
+                    <a href="https://discord.com/invite/101huntersqn" target="_blank" rel="noopener"
+                        aria-label="Discord">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/101snhuntersqn" target="_blank" rel="noopener"
+                        aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@onurklc012" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <p class="footer-copyright" data-i18n="footer_copyright">
+                    © 2025 101st Hunter Squadron. All rights reserved.<br>
+                    <em>"There are 2 types of squadrons; Hunters and our targets."</em>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+        <img src="" alt="Gallery image" id="lightboxImg">
+        <button class="lightbox-next" id="lightboxNext">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M9 18l6-6-6-6" />
+            </svg>
+        </button>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/translations.js"></script>
+    <script src="js/serverStatus.js"></script>
+    <script src="js/leaderboard.js"></script>
+    <script src="js/dragonFire.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
