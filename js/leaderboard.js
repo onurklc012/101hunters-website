@@ -19,6 +19,27 @@
 
     let refreshTimer = null;
 
+    // Strip Discord markdown (**, __, *, ~~, `) from pilot names
+    function cleanName(name) {
+        return (name || '')
+            .replace(/\*\*(.+?)\*\*/g, '$1')
+            .replace(/__(.+?)__/g, '$1')
+            .replace(/\*(.+?)\*/g, '$1')
+            .replace(/~~(.+?)~~/g, '$1')
+            .replace(/`(.+?)`/g, '$1')
+            .replace(/\*+/g, '')
+            .trim();
+    }
+
+    // Clean lastUpdate footer text
+    function cleanLastUpdate(text) {
+        if (!text) return null;
+        return text
+            .replace(/🕒\s*/, '')
+            .replace(/10\s*dk/g, '5 dk')
+            .trim();
+    }
+
     async function fetchLeaderboard() {
         try {
             const response = await fetch(LB_CONFIG.primaryApiUrl, { cache: 'no-cache' });
@@ -64,7 +85,7 @@
             podiumEl.innerHTML = `
                 <div class="lb-podium-item lb-second">
                     <div class="lb-podium-medal">🥈</div>
-                    <div class="lb-podium-name">${pilots[1].name}</div>
+                    <div class="lb-podium-name">${cleanName(pilots[1].name)}</div>
                     <div class="lb-podium-credits">${pilots[1].credits.toLocaleString()}</div>
                     <div class="lb-podium-bar" style="height: ${60 + (pilots[1].credits / maxCredits) * 40}px;"></div>
                     <div class="lb-podium-rank">2</div>
@@ -72,14 +93,14 @@
                 <div class="lb-podium-item lb-first">
                     <div class="lb-podium-crown">👑</div>
                     <div class="lb-podium-medal">🥇</div>
-                    <div class="lb-podium-name">${pilots[0].name}</div>
+                    <div class="lb-podium-name">${cleanName(pilots[0].name)}</div>
                     <div class="lb-podium-credits">${pilots[0].credits.toLocaleString()}</div>
                     <div class="lb-podium-bar" style="height: ${60 + (pilots[0].credits / maxCredits) * 40}px;"></div>
                     <div class="lb-podium-rank">1</div>
                 </div>
                 <div class="lb-podium-item lb-third">
                     <div class="lb-podium-medal">🥉</div>
-                    <div class="lb-podium-name">${pilots[2].name}</div>
+                    <div class="lb-podium-name">${cleanName(pilots[2].name)}</div>
                     <div class="lb-podium-credits">${pilots[2].credits.toLocaleString()}</div>
                     <div class="lb-podium-bar" style="height: ${60 + (pilots[2].credits / maxCredits) * 40}px;"></div>
                     <div class="lb-podium-rank">3</div>
@@ -101,7 +122,7 @@
                         : `<span class="lb-rank-num">${p.rank || i + 1}</span>`
                     }
                         </td>
-                        <td class="lb-td-name">${p.name}</td>
+                        <td class="lb-td-name">${cleanName(p.name)}</td>
                         <td class="lb-td-credits">${p.credits.toLocaleString()}</td>
                         <td class="lb-td-bar">
                             <div class="lb-bar-track">
@@ -116,13 +137,14 @@
         // Update note
         const noteEl = document.getElementById('lbUpdateNote');
         if (noteEl && lb.lastUpdate) {
+            const cleaned = cleanLastUpdate(lb.lastUpdate);
             const existing = noteEl.querySelector('[data-i18n]');
             if (existing) {
                 // Store original i18n text and just set the update info once
                 if (!existing.dataset.originalText) {
                     existing.dataset.originalText = existing.textContent;
                 }
-                existing.textContent = existing.dataset.originalText + ` • ${lb.lastUpdate}`;
+                existing.textContent = existing.dataset.originalText + ` • ⏱ ${cleaned}`;
             }
         }
     }
