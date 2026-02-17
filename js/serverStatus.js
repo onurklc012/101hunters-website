@@ -7,8 +7,8 @@
 const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
 const SERVER_CONFIG = {
-    primaryApiUrl: IS_LOCAL ? 'http://localhost:3001/api/server-status' : null,
-    fallbackApiUrl: null,
+    primaryApiUrl: IS_LOCAL ? 'http://localhost:3001/api/server-status' : 'https://onurklc012.github.io/101st-server-data/data/server-status.json',
+    fallbackApiUrl: IS_LOCAL ? null : 'https://onurklc012.github.io/101st-server-data/data/server-status.json',
     refreshInterval: 30000,
     demoMode: false
 };

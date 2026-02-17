@@ -6,8 +6,10 @@
 (function () {
     'use strict';
 
+    const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
     const LB_CONFIG = {
-        primaryApiUrl: 'http://localhost:3001/api/leaderboard',
+        primaryApiUrl: IS_LOCAL ? 'http://localhost:3001/api/leaderboard' : 'https://onurklc012.github.io/101st-server-data/data/leaderboard.json',
         fallbackApiUrl: null,
         refreshInterval: 60000, // 60s
     };
