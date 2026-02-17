@@ -3,12 +3,93 @@
 // Supports multiple servers with tab switching
 // =====================================================
 
+// Detect if running locally
+const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
 const SERVER_CONFIG = {
-    primaryApiUrl: 'http://localhost:3001/api/server-status',
-    fallbackApiUrl: 'https://cedar-privilege-mac-gel.trycloudflare.com/status',
+    primaryApiUrl: IS_LOCAL ? 'http://localhost:3001/api/server-status' : null,
+    fallbackApiUrl: null,
     refreshInterval: 30000,
     demoMode: false
 };
+
+// Demo fallback data — shown when API is unavailable (deployed site)
+const DEMO_SERVERS = [
+    {
+        online: true,
+        friendlyName: 'Caucasus',
+        serverName: '101st Hunter Squadron — Caucasus',
+        mission: '101 Hunter SQN | Caucasus Extended Dynamic Campaign',
+        map: 'Caucasus',
+        mapId: 'caucasus',
+        players: 7,
+        maxPlayers: 32,
+        missionTime: '14:35',
+        missionDate: '2026-02-17',
+        serverIP: '194.26.183.114:10308',
+        playerList: [],
+        activePlayers: {
+            blue: [
+                { name: '101-Hunter[0101]', unit: 'F-16C_50' },
+                { name: '101-Yidobaba[0098]', unit: 'F/A-18C' },
+                { name: '101chemisTR61', unit: 'F-16C_50' },
+                { name: '★101-EffBee[0010]', unit: 'AH-64D' },
+            ],
+            red: [
+                { name: '101ArmOn1453', unit: 'Su-27' },
+                { name: '101-Falcon[0042]', unit: 'Su-33' },
+                { name: '101-Storm[0077]', unit: 'Ka-50' },
+            ],
+            neutral: []
+        },
+        weather: { temperature: '12°C', clouds: 'Scattered', visibility: '30 km', wind: '270° / 8 kts', qnh: '1013 hPa' },
+        slots: { blue: { used: 4, total: 20 }, red: { used: 3, total: 12 } },
+        missionStats: null,
+    },
+    {
+        online: true,
+        friendlyName: 'Dynamic',
+        serverName: '101st Hunter Squadron — Dynamic',
+        mission: '101 Hunter SQN | Dynamic Campaign',
+        map: 'Syria',
+        mapId: 'syria',
+        players: 3,
+        maxPlayers: 32,
+        missionTime: '08:20',
+        missionDate: '2026-02-17',
+        serverIP: '194.26.183.114:10309',
+        playerList: [],
+        activePlayers: {
+            blue: [
+                { name: '101-Phoenix[0055]', unit: 'F-14B' },
+                { name: '101-Raptor[0033]', unit: 'F-15E' },
+            ],
+            red: [
+                { name: '101-Cobra[0066]', unit: 'Su-25T' },
+            ],
+            neutral: []
+        },
+        weather: { temperature: '18°C', clouds: 'Clear', visibility: '40 km', wind: '180° / 5 kts', qnh: '1015 hPa' },
+        slots: { blue: { used: 2, total: 18 }, red: { used: 1, total: 14 } },
+        missionStats: null,
+    },
+    {
+        online: false,
+        friendlyName: 'Syria',
+        serverName: '101st Hunter Squadron — Syria',
+        mission: '--',
+        map: 'Syria',
+        mapId: 'syria',
+        players: 0,
+        maxPlayers: 32,
+        missionTime: '--:--',
+        playerList: [],
+        activePlayers: { blue: [], red: [], neutral: [] },
+        weather: null,
+        slots: null,
+        missionStats: null,
+    }
+];
 
 // Map icons for server tabs
 const MAP_ICONS = {
@@ -257,65 +338,75 @@ function updateServerUI(data) {
 // Fetch server status from API
 async function fetchServerStatus() {
     if (SERVER_CONFIG.demoMode) {
-        updateServerUI({ online: false });
+        allServers = DEMO_SERVERS;
+        if (activeServerIndex >= allServers.length) activeServerIndex = 0;
+        renderServerTabs();
+        updateServerUI(allServers[activeServerIndex]);
         return;
     }
 
-    // Try Discord Bot API first
-    try {
-        const response = await fetch(SERVER_CONFIG.primaryApiUrl, {
-            method: 'GET',
-            cache: 'no-cache'
-        });
+    // Try Discord Bot API first (only available locally)
+    if (SERVER_CONFIG.primaryApiUrl) {
+        try {
+            const response = await fetch(SERVER_CONFIG.primaryApiUrl, {
+                method: 'GET',
+                cache: 'no-cache'
+            });
 
-        if (response.ok) {
-            const result = await response.json();
-            const servers = result.servers || [];
+            if (response.ok) {
+                const result = await response.json();
+                const servers = result.servers || [];
 
-            if (servers.length > 0) {
-                allServers = servers;
-                // Clamp active index
-                if (activeServerIndex >= allServers.length) activeServerIndex = 0;
-                renderServerTabs();
-                updateServerUI(allServers[activeServerIndex]);
-                return;
+                if (servers.length > 0) {
+                    allServers = servers;
+                    if (activeServerIndex >= allServers.length) activeServerIndex = 0;
+                    renderServerTabs();
+                    updateServerUI(allServers[activeServerIndex]);
+                    return;
+                }
             }
+        } catch (err) {
+            console.log('Discord bot API unavailable, using demo data...');
         }
-    } catch (err) {
-        console.log('Discord bot API unavailable, trying fallback...');
     }
 
-    // Fallback to Cloudflare Tunnel (single server)
-    try {
-        const response = await fetch(SERVER_CONFIG.fallbackApiUrl, {
-            method: 'GET',
-            mode: 'cors',
-            cache: 'no-cache'
-        });
+    // Fallback to Cloudflare Tunnel (if configured)
+    if (SERVER_CONFIG.fallbackApiUrl) {
+        try {
+            const response = await fetch(SERVER_CONFIG.fallbackApiUrl, {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache'
+            });
 
-        if (!response.ok) throw new Error('Server not responding');
+            if (!response.ok) throw new Error('Server not responding');
 
-        const data = await response.json();
-        const fallbackServer = {
-            online: data.online !== false,
-            serverName: data.serverName || data.name || '101st Hunter Squadron',
-            mission: data.mission || data.mission_name || '--',
-            map: data.map || data.theatre || '--',
-            players: data.players || data.player_count || 0,
-            maxPlayers: data.maxPlayers || data.max_players || 32,
-            missionTime: data.missionTime || data.mission_time || data.time || '--:--',
-            playerList: data.playerList || data.player_list || data.players_list || []
-        };
-        allServers = [fallbackServer];
-        renderServerTabs();
-        updateServerUI(fallbackServer);
-    } catch (error) {
-        console.log('Server status fetch failed:', error);
-        allServers = [];
-        const tabsEl = document.getElementById('serverTabs');
-        if (tabsEl) tabsEl.style.display = 'none';
-        updateServerUI({ online: false });
+            const data = await response.json();
+            const fallbackServer = {
+                online: data.online !== false,
+                serverName: data.serverName || data.name || '101st Hunter Squadron',
+                mission: data.mission || data.mission_name || '--',
+                map: data.map || data.theatre || '--',
+                players: data.players || data.player_count || 0,
+                maxPlayers: data.maxPlayers || data.max_players || 32,
+                missionTime: data.missionTime || data.mission_time || data.time || '--:--',
+                playerList: data.playerList || data.player_list || data.players_list || []
+            };
+            allServers = [fallbackServer];
+            renderServerTabs();
+            updateServerUI(fallbackServer);
+            return;
+        } catch (error) {
+            console.log('Fallback API failed, using demo data...');
+        }
     }
+
+    // Both APIs failed — use demo data
+    console.log('Using demo server data');
+    allServers = DEMO_SERVERS;
+    if (activeServerIndex >= allServers.length) activeServerIndex = 0;
+    renderServerTabs();
+    updateServerUI(allServers[activeServerIndex]);
 }
 
 // Initialize server status
