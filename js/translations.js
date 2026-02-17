@@ -325,7 +325,7 @@ const LANG_META = {
 
 // Get saved language or default to English
 function getCurrentLanguage() {
-    return localStorage.getItem('lang') || 'en';
+    return localStorage.getItem('lang') || 'tr';
 }
 
 // Update dropdown button to reflect current language
