@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>101 Hunter SQN - Check-Ride Sınav Formu</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm 12mm 15mm 12mm;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+            color: #1e293b;
+        }
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 25px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #1e40af;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+        .header img {
+            width: 70px;
+            height: auto;
+        }
+        .header-title {
+            text-align: center;
+            flex-grow: 1;
+        }
+        .header-title h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #0f172a;
+            letter-spacing: 0.5px;
+        }
+        .header-title h2 {
+            margin: 4px 0 2px 0;
+            font-size: 13px;
+            color: #1e40af;
+        }
+        .header-title p {
+            margin: 0;
+            font-size: 10px;
+            color: #64748b;
+            font-weight: 600;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 15px;
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 12px;
+        }
+        .form-field {
+            display: flex;
+            align-items: center;
+        }
+        .form-field label {
+            font-weight: bold;
+            color: #1e293b;
+            width: 140px;
+            flex-shrink: 0;
+        }
+        .form-field input, .form-field select {
+            flex-grow: 1;
+            padding: 5px 8px;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            font-size: 12px;
+            background: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 12px;
+            font-size: 11px;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 7px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1e40af;
+            color: #ffffff;
+            font-size: 11px;
+            text-align: center;
+        }
+        td.center {
+            text-align: center;
+            width: 75px;
+        }
+        .aar-row {
+            background-color: #fef2f2;
+            border-left: 3px solid #dc2626;
+        }
+        .aar-box {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .aar-box input {
+            width: 90px;
+            padding: 4px 6px;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .decision-box {
+            border: 1px solid #cbd5e1;
+            background: #f8fafc;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 15px;
+            font-size: 11.5px;
+        }
+        .decision-box textarea {
+            width: 100%;
+            height: 45px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            padding: 6px;
+            font-family: inherit;
+            resize: none;
+        }
+        .radio-options label {
+            margin-right: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 11px;
+        }
+        .sign-line {
+            margin-top: 25px;
+            border-top: 1px dashed #94a3b8;
+            padding-top: 5px;
+            color: #64748b;
+        }
+        .btn-panel {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(30,64,175,0.3);
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #1d4ed8;
+        }
+        .btn-reset {
+            background: #64748b;
+            margin-left: 10px;
+        }
+        .btn-reset:hover {
+            background: #475569;
+        }
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .btn-panel {
+                display: none !important;
+            }
+            input, select, textarea {
+                border: 1px solid #cbd5e1 !important;
+                background: transparent !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="101_HUNTER_PEC_VIRTUAL.png" alt="101 Hunter SQN">
+        <div class="header-title">
+            <h1>101. HUNTER SQUADRON (AVCI FİLOSU)</h1>
+            <h2>CHECK-RIDE UÇUŞ YETERLİLİK VE DEĞERLENDİRME KARTI</h2>
+            <p>DCS World Uçuş Değerlendirme Formu </p>
+        </div>
+        <img src="101_HUNTER_PEC_VIRTUAL.png" alt="101 Hunter SQN">
+    </div>
+
+    <form id="checkrideForm">
+        <div class="form-grid">
+            <div class="form-field">
+                <label>Aday Callsign:</label>
+                <input type="text" placeholder="Örn: Hunter 1-2 | Viper" required>
+            </div>
+            <div class="form-field">
+                <label>Sınav Tarihi & Saati:</label>
+                <input type="text" id="dateTimeField">
+            </div>
+            <div class="form-field">
+                <label>Uçak Modülü:</label>
+                <select>
+                    <option>F-16C Viper</option>
+                    <option>F/A-18C Hornet</option>
+                    <option>Diğer Modül</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label>Eğitmen Pilot:</label>
+                <input type="text" placeholder="Değerlendiren Lider">
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: left; width: 25%;">Kontrol Edilecek Kriterler</th>
+                    <th style="text-align: left;">Harekat Standardı & Detay</th>
+                    <th>Başarılı</th>
+                    <th>Başarısız</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>1. Yer & Kalkış Disiplini</b></td>
+                    <td>Rampa çalıştırma, SRS telsiz check-in, taksi ve kol kalkışı.</td>
+                    <td class="center"><input type="radio" name="c1" value="pass"></td>
+                    <td class="center"><input type="radio" name="c1" value="fail"></td>
+                </tr>
+                <tr>
+                    <td><b>2. Kol & Formasyon Uçuşu</b></td>
+                    <td>Parmak Dörtlüsü, Echelon sağ/sol; irtifa/hız/mesafe tutuşu.</td>
+                    <td class="center"><input type="radio" name="c2" value="pass"></td>
+                    <td class="center"><input type="radio" name="c2" value="fail"></td>
+                </tr>
+                <tr>
+                    <td><b>- Kol İçi Manevralar</b></td>
+                    <td>Dönüşlerde formasyonu koruma, lideri kaybetmeme.</td>
+                    <td class="center"><input type="radio" name="c2_2" value="pass"></td>
+                    <td class="center"><input type="radio" name="c2_2" value="fail"></td>
+                </tr>
+                <tr class="aar-row">
+                    <td><b>3. Havada Yakıt İkmali (AAR)<br><span style="color:#dc2626; font-size:10px;">★ ZORUNLU BARAJ</span></b></td>
+                    <td><b>Hedef: Toplam 6.000 lbs yakıt, EN FAZLA 5 kontak ile.</b> Pre-contact, stabil kalış, bağlantı koparmama ve reforme olma.</td>
+                    <td class="center"><input type="radio" name="c3" value="pass"></td>
+                    <td class="center"><input type="radio" name="c3" value="fail"></td>
+                </tr>
+                <tr>
+                    <td><b>4. Telsiz & Brevity Disiplini</b></td>
+                    <td>Standart NATO Brevity kodları (Visual, Blind, Tally, Bingo vb.).</td>
+                    <td class="center"><input type="radio" name="c4" value="pass"></td>
+                    <td class="center"><input type="radio" name="c4" value="fail"></td>
+                </tr>
+                <tr>
+                    <td><b>- Lider Otoritesi</b></td>
+                    <td>Uçuş lideri ve ATC talimatlarına anında itaat, gereksiz konuşmama.</td>
+                    <td class="center"><input type="radio" name="c4_2" value="pass"></td>
+                    <td class="center"><input type="radio" name="c4_2" value="fail"></td>
+                </tr>
+                <tr>
+                    <td><b>5. İniş & Meydan Trafiği</b></td>
+                    <td>Overhead break yaklaşması, güvenli teker koyma, pist terk.</td>
+                    <td class="center"><input type="radio" name="c5" value="pass"></td>
+                    <td class="center"><input type="radio" name="c5" value="fail"></td>
+                </tr>
+                <tr>
+                    <td><b>6. Uçuş Emniyeti</b></td>
+                    <td>Durumsal farkındalık (SA), hava çarpışması ve dost ateşi riski yaratmama.</td>
+                    <td class="center"><input type="radio" name="c6" value="pass"></td>
+                    <td class="center"><input type="radio" name="c6" value="fail"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="aar-box">
+            <div>⛽ <b>AAR HESABI:</b></div>
+            <div>Alınan Yakıt: <input type="number" placeholder="Örn: 6200"> lbs (Hedef: 6.000)</div>
+            <div>Toplam Kontak: <input type="number" placeholder="Örn: 3" max="5"> (Max: 5)</div>
+            <div>Sonuç: 
+                <select style="font-weight: bold;">
+                    <option>BAŞARILI (Geçti)</option>
+                    <option>BAŞARISIZ (Kaldı)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="decision-box">
+            <b>EĞİTMEN NOTLARI VE TAVSİYELERİ:</b>
+            <textarea placeholder="Pilotun eksik veya başarılı olduğu alanları buraya yazınız..."></textarea>
+            
+            <div style="margin-top: 8px;">
+                <b>NİHAİ KARAR:</b>
+                <div class="radio-options" style="margin-top: 5px;">
+                    <label style="color: #16a34a;"><input type="radio" name="final" value="pass"> [ ✓ ] BAŞARILI &mdash; @Muharip Pilot Statüsü Verildi</label>
+                    <label style="color: #dc2626;"><input type="radio" name="final" value="fail"> [ ✗ ] BAŞARISIZ &mdash; İntibak Eğitimine Devam</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="signatures">
+            <div>
+                <b>Aday Pilot Callsign</b>
+                <div class="sign-line">İmza / Teyit</div>
+            </div>
+            <div>
+                <b>Değerlendiren Eğitmen</b>
+                <div class="sign-line">İmza / Teyit</div>
+            </div>
+            <div>
+                <b>Kurucu / Karargah Onayı</b>
+                <div class="sign-line">Onaylandı</div>
+            </div>
+        </div>
+
+        <div class="btn-panel">
+            <button type="button" class="btn" onclick="window.print()">🖨️ Formu Doldur & PDF Olarak Kaydet</button>
+            <button type="reset" class="btn btn-reset">Formu Temizle</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const now = new Date();
+    const formatted = now.toLocaleDateString('tr-TR') + ' - ' + now.toLocaleTimeString('tr-TR', {hour: '2-digit', minute:'2-digit'});
+    document.getElementById('dateTimeField').value = formatted;
+</script>
+
+</body>
+</html>

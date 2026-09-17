@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Başvuru | 101st Hunter Squadron</title>
+    <link rel="icon" type="image/png" href="assets/images/dragon.png">
+    <style>
+        :root {
+            --bg-dark: #0a0c10;
+            --card-bg: #121620;
+            --card-border: #1e293b;
+            --accent-blue: #2563eb;
+            --accent-gold: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --input-bg: #0d1117;
+            --input-border: #334155;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 15px;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 780px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .header-logo {
+            width: 80px;
+            height: auto;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .header h1 span {
+            color: var(--accent-gold);
+        }
+
+        .header p {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+        }
+
+        .criteria-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 25px;
+            font-size: 12.5px;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        .criteria-box h4 {
+            color: var(--accent-gold);
+            font-size: 13px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .criteria-box ul {
+            padding-left: 20px;
+        }
+
+        .criteria-box li {
+            margin-bottom: 4px;
+        }
+
+        .form-section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 24px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 640px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 25px 20px;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 6px;
+            padding: 10px 12px;
+            color: #ffffff;
+            font-size: 13px;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        .custom-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .opt-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: #0d1117;
+            border: 1px solid var(--input-border);
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            user-select: none;
+            transition: all 0.2s;
+        }
+
+        .opt-label:hover {
+            border-color: #475569;
+            background: #161b22;
+        }
+
+        .opt-label input {
+            accent-color: var(--accent-blue);
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 14.5px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Success / Error Modal */
+        .status-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .popup-card {
+            background: var(--card-bg);
+            border: 1px solid var(--accent-blue);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 460px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .popup-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .popup-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .popup-card p {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-discord {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #5865f2;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13.5px;
+            transition: background 0.2s;
+        }
+
+        .btn-discord:hover {
+            background: #4752c4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--card-border);">
+        <a href="index.html" style="color: var(--accent-gold); text-decoration: none; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+            ← Ana Sayfaya Dön
+        </a>
+        <a href="101_Hunter_SQN_Kurallari.pdf" target="_blank" style="color: var(--text-secondary); text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 6px;">
+            📄 Filo Tüzüğü (PDF)
+        </a>
+    </div>
+
+    <div class="header">
+        <!-- Logo (assets klasöründe dragon veya patch yoksa filo peçi gösterilir) -->
+        <img src="assets/images/dragon.png" onerror="this.src='101_HUNTER_PEC_VIRTUAL.png'" alt="101st Hunter Squadron" class="header-logo">
+        <h1>101st <span>Hunter</span> Squadron</h1>
+        <p>Aday Pilot Katılım ve Ön Başvuru Portalı</p>
+    </div>
+
+    <!-- 1. Katılım Şartları Kutusu -->
+    <div class="criteria-box">
+        <h4>⚡ Katılım Ön Koşulları</h4>
+        <ul>
+            <li><b>Donanım:</b> HOTAS (Uçuş/Gaz Kolu) ve Baş Takip Sistemi (TrackIR/VR/OpenTrack) zorunludur.</li>
+            <li><b>Modül:</b> DCS: F-16C Viper veya DCS: F/A-18C Hornet modüllerinden en az birine sahip olunmalıdır.</li>
+            <li><b>Uçuş Takvimi:</b> <b>Cuma 21:00 (Eğitim)</b> ve <b>Cumartesi 21:00 (Harekat)</b> sortilerine düzenli katılım beklenir.</li>
+            <li><b>Disiplin:</b> Mazeretsiz 3 devamsızlık durumunda filoyla ilişiğin kalıcı olarak kesileceğini kabul etmek şarttır.</li>
+            <li><b>Check-Ride:</b> Kabul edilen adaylar AAR (6.000 lbs, max 5 kontak) ve formasyon testini verene kadar eğitim sortilerinde uçar.</li>
+        </ul>
+    </div>
+
+    <form id="applyForm">
+        <div class="form-section-title">👤 Pilot Bilgileri</div>
+        <div class="form-grid">
+            <div class="form-group">
+                <label>İsim Soyisim *</label>
+                <input type="text" id="fullname" placeholder="Örn: Onur Kılıç" required>
+            </div>
+            <div class="form-group">
+                <label>Yaş ve Şehir *</label>
+                <div style="display: grid; grid-template-columns: 80px 1fr; gap: 8px;">
+                    <input type="number" id="age" placeholder="Yaş" min="15" max="70" required>
+                    <input type="text" id="city" placeholder="Şehir (Örn: İstanbul)" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Discord Kullanıcı Adınız *</label>
+                <input type="text" id="discord_id" placeholder="Örn: onur#1234 veya onur_pilot" required>
+            </div>
+            <div class="form-group">
+                <label>Tercih Ettiğiniz Callsign (Çağrı Adı) *</label>
+                <input type="text" id="callsign" placeholder="Örn: Hunter 1-1 / Viper / Ghost" required>
+            </div>
+        </div>
+
+        <div class="form-section-title">✈️ DCS & Donanım Durumu</div>
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Sahip Olduğunuz Jet Modülü *</label>
+                <div class="custom-options">
+                    <label class="opt-label"><input type="checkbox" name="module" value="F-16C Viper"> F-16C Viper</label>
+                    <label class="opt-label"><input type="checkbox" name="module" value="F/A-18C Hornet"> F/A-18C Hornet</label>
+                    <label class="opt-label"><input type="checkbox" name="module" value="F-14 / F-15 / Diğer"> Diğer Jetler</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>DCS Uçuş Tecrübeniz *</label>
+                <select id="experience" required>
+                    <option value="">Seçiniz...</option>
+                    <option value="0-6 Ay (Temel)">0 - 6 Ay (Temel Uçuş)</option>
+                    <option value="6-12 Ay (Orta)">6 - 12 Ay (Sistemler & BVR)</option>
+                    <option value="1-2 Yıl (İleri)">1 - 2 Yıl (BVR + AAR Hakim)</option>
+                    <option value="2+ Yıl (Kıdemli)">2+ Yıl (Tecrübeli Pilot)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>HOTAS (Uçuş Kolu) Modeliniz *</label>
+                <input type="text" id="hotas" placeholder="Örn: TM Warthog / VKB / X56 / T16000M" required>
+            </div>
+            <div class="form-group">
+                <label>Baş Takip Donanımınız *</label>
+                <div class="custom-options">
+                    <label class="opt-label"><input type="radio" name="headtrack" value="TrackIR" required> TrackIR</label>
+                    <label class="opt-label"><input type="radio" name="headtrack" value="VR Gözlük"> VR Gözlük</label>
+                    <label class="opt-label"><input type="radio" name="headtrack" value="OpenTrack"> OpenTrack</label>
+                    <label class="opt-label"><input type="radio" name="headtrack" value="Yok"> Yok</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section-title">📜 Disiplin ve Katılım Onayı</div>
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Cuma 21:00 ve Cumartesi 21:00 uçuşlarına düzenli katılır mısınız? *</label>
+                <div class="custom-options">
+                    <label class="opt-label"><input type="radio" name="schedule" value="Evet, Düzenli Katılırım" required> [ ✓ ] Evet, kesinlikle katılırım.</label>
+                    <label class="opt-label"><input type="radio" name="schedule" value="Bazen Sorun Olabilir"> [ ! ] Bazen aksayabilir.</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>3 Mazeretsiz devamsızlıkta kalıcı ihraç kuralını kabul ediyor musunuz? *</label>
+                <div class="custom-options">
+                    <label class="opt-label"><input type="radio" name="rules" value="Kabul Etti" required> [ ✓ ] Okudum, kabul ediyorum.</label>
+                    <label class="opt-label"><input type="radio" name="rules" value="Kabul Etmedi"> [ ✗ ] Kabul etmiyorum.</label>
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label>Neden 101. Avcı Filosu? (Beklentileriniz ve kendinizden kısaca bahsedin)</label>
+                <textarea id="reason" placeholder="Filomuza neden katılmak istiyorsunuz?"></textarea>
+            </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="btn-submit">
+            <span>🚀 Başvuruyu Karargaha Gönder</span>
+        </button>
+    </form>
+</div>
+
+<!-- Başvuru Başarılı Pop-up -->
+<div class="status-popup" id="popup">
+    <div class="popup-card">
+        <div class="popup-icon">🦅</div>
+        <h3>BAŞVURUNUZ ALINDI!</h3>
+        <p>Bilgileriniz 101. Hunter Squadron Karargahı'na başarıyla ulaştı. Değerlendirme süreci için Discord sunucumuza katılıp sesli mülakat bildirimini bekleyiniz.</p>
+        <a href="https://discord.com/invite/101huntersqn" target="_blank" class="btn-discord">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+            Discord Sunucumuza Katıl
+        </a>
+    </div>
+</div>
+
+<script>
+    // =========================================================================
+    // DİSCORD ENTEGRASYONU:
+    // Discord'da kanal ayarlarından oluşturacağınız Webhook linkini buraya yapıştırın:
+    // =========================================================================
+    const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1550260989973373038/LrL1oAkuX3K3YGJbVCnoLKTtKkRZjT1IGzP6p_8LD2v8c-m6UYUzYrNQ8kbBd4Sfynq9";
+
+    document.getElementById('applyForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "⏳ Başvuru İletiliyor...";
+
+        // Modülleri topla
+        const selectedModules = [];
+        document.querySelectorAll('input[name="module"]:checked').forEach(cb => selectedModules.push(cb.value));
+
+        const fullname = document.getElementById('fullname').value;
+        const age = document.getElementById('age').value;
+        const city = document.getElementById('city').value;
+        const discord_id = document.getElementById('discord_id').value;
+        const callsign = document.getElementById('callsign').value;
+        const exp = document.getElementById('experience').value;
+        const hotas = document.getElementById('hotas').value;
+        const headtrack = document.querySelector('input[name="headtrack"]:checked')?.value || "Belirtilmedi";
+        const schedule = document.querySelector('input[name="schedule"]:checked')?.value || "Belirtilmedi";
+        const rules = document.querySelector('input[name="rules"]:checked')?.value || "Belirtilmedi";
+        const reason = document.getElementById('reason').value || "Belirtilmedi";
+
+        // Discord Webhook Payload Hazırla
+        const payload = {
+            username: "101 Hunter HQ | Başvuru Botu",
+            avatar_url: "https://101huntersqn.com/assets/images/dragon.png",
+            embeds: [{
+                title: "🦅 YENİ ADAY PİLOT BAŞVURUSU",
+                description: `**${callsign}** (${fullname}) filomuza katılmak için web üzerinden başvuru yaptı!`,
+                color: 0x2563eb, // Hunter Blue
+                fields: [
+                    { name: "👤 Aday Bilgisi", value: `${fullname} (${age} Yaş - ${city})`, inline: true },
+                    { name: "💬 Discord Adı", value: `${discord_id}`, inline: true },
+                    { name: "🎯 Talep Edilen Callsign", value: `**${callsign}**`, inline: true },
+                    { name: "✈️ Modüller", value: selectedModules.join(", ") || "Belirtilmedi", inline: true },
+                    { name: "⏳ DCS Tecrübesi", value: exp, inline: true },
+                    { name: "🕹️ HOTAS & Baş Takip", value: `${hotas} | ${headtrack}`, inline: true },
+                    { name: "📅 Takvim Uyumu (Cuma-Cts)", value: schedule, inline: true },
+                    { name: "📜 3 Devamsızlık İhraç Kuralı", value: rules, inline: true },
+                    { name: "📝 Başvuru Nedeni / Beklenti", value: reason, inline: false }
+                ],
+                footer: {
+                    text: "101. Hunter Squadron | 101huntersqn.com",
+                    icon_url: "https://101huntersqn.com/assets/images/patch.png"
+                },
+                timestamp: new Date().toISOString()
+            }]
+        };
+
+        let isSuccess = false;
+
+        // 1. Bulut API Proxy (Cloudflare Edge - Türkiye ISP Discord engellerinden etkilenmez)
+        try {
+            const proxyRes = await fetch("/api/apply", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            if (proxyRes.ok) {
+                isSuccess = true;
+            }
+        } catch (proxyErr) {
+            console.warn("Cloudflare API Proxy yanıt vermedi, doğrudan webhook deneniyor...", proxyErr);
+        }
+
+        // 2. Doğrudan Discord Webhook (Proxy yanıt vermezse yedek olarak çalışır)
+        if (!isSuccess && DISCORD_WEBHOOK_URL) {
+            try {
+                const directRes = await fetch(DISCORD_WEBHOOK_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                if (directRes.ok) {
+                    isSuccess = true;
+                }
+            } catch (directErr) {
+                console.warn("Doğrudan Discord Webhook iletimi başarısız:", directErr);
+            }
+        }
+
+        if (isSuccess) {
+            document.getElementById('popup').style.display = 'flex';
+            document.getElementById('applyForm').reset();
+        } else {
+            alert("Başvuru gönderilirken bir ağ hatası oluştu. Lütfen doğrudan Discord sunucumuza katılarak iletişime geçiniz.");
+        }
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = "🚀 Başvuruyu Karargaha Gönder";
+    });
+</script>
+
+</body>
+</html>

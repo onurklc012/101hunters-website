@@ -3,6 +3,17 @@
 // Supports multiple servers with tab switching
 // =====================================================
 
+// -- SECURITY: HTML Sanitizer to prevent XSS attacks --
+function escapeHTML(str) {
+    if (typeof str !== 'string') return '';
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 // Detect if running locally
 const IS_LOCAL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
@@ -18,75 +29,73 @@ const DEMO_SERVERS = [
     {
         online: true,
         friendlyName: 'Caucasus',
-        serverName: '101st Hunter Squadron — Caucasus',
-        mission: '101 Hunter SQN | Caucasus Extended Dynamic Campaign',
+        serverName: '101 Hunter SQN | Caucasus | Server',
+        mission: '101_Hunter_SQN_v9_5',
         map: 'Caucasus',
         mapId: 'caucasus',
-        players: 7,
+        players: 1,
         maxPlayers: 32,
-        missionTime: '14:35',
-        missionDate: '2026-02-17',
-        serverIP: '194.26.183.114:10308',
+        missionTime: '12:27',
+        missionDate: '2026-04-21',
+        serverIP: '***.***.***:10308',
         playerList: [],
-        activePlayers: {
-            blue: [
-                { name: '101-Hunter[0101]', unit: 'F-16C_50' },
-                { name: '101-Yidobaba[0098]', unit: 'F/A-18C' },
-                { name: '101chemisTR61', unit: 'F-16C_50' },
-                { name: '★101-EffBee[0010]', unit: 'AH-64D' },
-            ],
-            red: [
-                { name: '101ArmOn1453', unit: 'Su-27' },
-                { name: '101-Falcon[0042]', unit: 'Su-33' },
-                { name: '101-Storm[0077]', unit: 'Ka-50' },
-            ],
-            neutral: []
-        },
-        weather: { temperature: '12°C', clouds: 'Scattered', visibility: '30 km', wind: '270° / 8 kts', qnh: '1013 hPa' },
-        slots: { blue: { used: 4, total: 20 }, red: { used: 3, total: 12 } },
+        activePlayers: { blue: [], red: [], neutral: [] },
+        weather: { temperature: '5.4°C', clouds: 'Two Layer Scattered / Broken High', visibility: '10 km / 6 SM', wind: 'Ground: 281° / 2 kts', qnh: '1013 hPa' },
+        slots: { blue: { used: 0, total: 134 }, red: { used: 0, total: 16 } },
         missionStats: null,
     },
     {
         online: true,
-        friendlyName: 'Dynamic',
-        serverName: '101st Hunter Squadron — Dynamic',
-        mission: '101 Hunter SQN | Dynamic Campaign',
+        friendlyName: 'Syria',
+        serverName: '101 Hunter SQN | Syria | Server',
+        mission: '101_Hunter_SQN_SURIYE_v3_7',
         map: 'Syria',
         mapId: 'syria',
-        players: 3,
+        players: 1,
         maxPlayers: 32,
-        missionTime: '08:20',
-        missionDate: '2026-02-17',
-        serverIP: '194.26.183.114:10309',
+        missionTime: '16:18',
+        missionDate: '2026-08-01',
+        serverIP: '***.***.***:10309',
         playerList: [],
-        activePlayers: {
-            blue: [
-                { name: '101-Phoenix[0055]', unit: 'F-14B' },
-                { name: '101-Raptor[0033]', unit: 'F-15E' },
-            ],
-            red: [
-                { name: '101-Cobra[0066]', unit: 'Su-25T' },
-            ],
-            neutral: []
-        },
-        weather: { temperature: '18°C', clouds: 'Clear', visibility: '40 km', wind: '180° / 5 kts', qnh: '1015 hPa' },
-        slots: { blue: { used: 2, total: 18 }, red: { used: 1, total: 14 } },
+        activePlayers: { blue: [], red: [], neutral: [] },
+        weather: { temperature: '20.0°C', clouds: 'Few Scattered Clouds', visibility: '10 km / 6 SM', wind: 'Ground: 198° / 4 kts', qnh: '1013 hPa' },
+        slots: { blue: { used: 0, total: 12 }, red: { used: 0, total: 9 } },
         missionStats: null,
     },
     {
-        online: false,
-        friendlyName: 'Syria',
-        serverName: '101st Hunter Squadron — Syria',
-        mission: '--',
+        online: true,
+        friendlyName: 'Syria Dynamic',
+        serverName: '101 Hunter SQN | Syria Extended Dynamic Campaign',
+        mission: '101 Hunters SQN - Syria - Modern Warfare',
         map: 'Syria',
         mapId: 'syria',
-        players: 0,
+        players: 1,
         maxPlayers: 32,
-        missionTime: '--:--',
+        missionTime: '22:12',
+        missionDate: '2025-07-01',
+        serverIP: '***.***.***:10310',
         playerList: [],
         activePlayers: { blue: [], red: [], neutral: [] },
-        weather: null,
-        slots: null,
+        weather: { temperature: '20.0°C', clouds: 'Clear', visibility: '10 km / 6 SM', wind: 'Ground: 233° / 4 kts', qnh: '1016 hPa' },
+        slots: { blue: { used: 0, total: 122 }, red: { used: 0, total: 7 } },
+        missionStats: null,
+    },
+    {
+        online: true,
+        friendlyName: 'Caucasus Dynamic',
+        serverName: '101 Hunter SQN | Caucasus Extended Dynamic Campaign',
+        mission: '101 Hunters SQN - Kafkas - Modern Warfare',
+        map: 'Caucasus',
+        mapId: 'caucasus',
+        players: 1,
+        maxPlayers: 32,
+        missionTime: '19:37',
+        missionDate: '2024-10-31',
+        serverIP: '***.***.***:10311',
+        playerList: [],
+        activePlayers: { blue: [], red: [], neutral: [] },
+        weather: { temperature: '-6.6°C', clouds: 'Two Layers Scattered / Large Clouds High Ceiling', visibility: '10 km / 6 SM', wind: 'Ground: 50° / 4 kts', qnh: '1022 hPa' },
+        slots: { blue: { used: 0, total: 69 }, red: { used: 0, total: 2 } },
         missionStats: null,
     }
 ];
@@ -126,13 +135,13 @@ function renderServerTabs() {
     tabsEl.style.display = 'flex';
     tabsEl.innerHTML = allServers.map((srv, idx) => {
         const icon = getMapIcon(srv);
-        const name = srv.friendlyName || `Server ${idx + 1}`;
+        const name = escapeHTML(srv.friendlyName || `Server ${idx + 1}`);
         const isActive = idx === activeServerIndex;
         const statusClass = srv.online ? 'online' : 'offline';
         const players = srv.online ? `${srv.players || 0}/${srv.maxPlayers || 32}` : '';
 
         return `
-            <button class="server-tab ${isActive ? 'active' : ''}" onclick="switchServerTab(${idx})">
+            <button class="server-tab ${isActive ? 'active' : ''}" data-server-index="${idx}">
                 <span class="server-tab-dot ${statusClass}"></span>
                 <span class="server-tab-icon">${icon}</span>
                 <span class="server-tab-label">${name}</span>
@@ -140,6 +149,13 @@ function renderServerTabs() {
             </button>
         `;
     }).join('');
+
+    // Event delegation for tab clicks
+    tabsEl.querySelectorAll('.server-tab').forEach(btn => {
+        btn.addEventListener('click', function() {
+            switchServerTab(parseInt(this.dataset.serverIndex));
+        });
+    });
 }
 
 // Switch active server tab
@@ -170,7 +186,7 @@ function updateServerUI(data) {
     // Update server name in header
     if (nameEl) {
         nameEl.textContent = data.friendlyName
-            ? `101st — ${data.friendlyName}`
+            ? `101st — ${escapeHTML(data.friendlyName)}`
             : '101st Hunter Squadron';
     }
 
@@ -178,16 +194,16 @@ function updateServerUI(data) {
         indicator.className = 'status-indicator online';
         statusText.textContent = lang === 'tr' ? 'Çevrimiçi' : lang === 'de' ? 'Online' : 'Online';
 
-        missionEl.textContent = data.mission || '--';
-        mapEl.textContent = data.map || data.friendlyName || '--';
+        missionEl.textContent = escapeHTML(data.mission || '--');
+        mapEl.textContent = escapeHTML(data.map || data.friendlyName || '--');
         playersEl.textContent = `${data.players || 0}/${data.maxPlayers || 32}`;
-        timeEl.textContent = data.missionTime || '--:--';
+        timeEl.textContent = escapeHTML(data.missionTime || '--:--');
 
         // Server IP
         const ipEl = document.getElementById('serverIP');
         if (ipEl && data.serverIP) {
             ipEl.style.display = 'inline';
-            ipEl.textContent = data.serverIP;
+            ipEl.textContent = escapeHTML(data.serverIP);
             ipEl.title = lang === 'tr' ? 'IP kopyala' : lang === 'de' ? 'IP kopieren' : 'Copy IP';
             ipEl.onclick = () => { navigator.clipboard?.writeText(data.serverIP); };
         }
@@ -213,19 +229,19 @@ function updateServerUI(data) {
                 if (blue.length > 0) {
                     html += `<div class="side-header blue">🔵 BLUE — ${blue.length}</div>`;
                     html += blue.map(p =>
-                        `<span class="player-item blue" title="${p.unit || ''}">${p.name} <small style="opacity:0.6">(${p.unit || '?'})</small></span>`
+                        `<span class="player-item blue" title="${escapeHTML(p.unit || '')}">${escapeHTML(p.name)} <small style="opacity:0.6">(${escapeHTML(p.unit || '?')})</small></span>`
                     ).join('');
                 }
                 if (red.length > 0) {
                     html += `<div class="side-header red">🔴 RED — ${red.length}</div>`;
                     html += red.map(p =>
-                        `<span class="player-item red" title="${p.unit || ''}">${p.name} <small style="opacity:0.6">(${p.unit || '?'})</small></span>`
+                        `<span class="player-item red" title="${escapeHTML(p.unit || '')}">${escapeHTML(p.name)} <small style="opacity:0.6">(${escapeHTML(p.unit || '?')})</small></span>`
                     ).join('');
                 }
                 if (neutral.length > 0) {
                     html += `<div class="side-header neutral">⚪ NEUTRAL — ${neutral.length}</div>`;
                     html += neutral.map(p =>
-                        `<span class="player-item" title="${p.unit || ''}">${p.name} <small style="opacity:0.6">(${p.unit || '?'})</small></span>`
+                        `<span class="player-item" title="${escapeHTML(p.unit || '')}">${escapeHTML(p.name)} <small style="opacity:0.6">(${escapeHTML(p.unit || '?')})</small></span>`
                     ).join('');
                 }
 
@@ -236,7 +252,7 @@ function updateServerUI(data) {
         } else if (data.playerList && data.playerList.length > 0) {
             playerListContainer.style.display = 'block';
             playerList.innerHTML = data.playerList
-                .map(name => `<span class="player-item">${name}</span>`)
+                .map(name => `<span class="player-item">${escapeHTML(name)}</span>`)
                 .join('');
         } else {
             playerListContainer.style.display = 'none';
@@ -248,11 +264,11 @@ function updateServerUI(data) {
             weatherEl.style.display = 'block';
             weatherEl.innerHTML = `
                 <div class="weather-info">
-                    <span>🌡️ ${data.weather.temperature || '--'}</span>
-                    ${data.weather.clouds ? `<span>☁️ ${data.weather.clouds}</span>` : ''}
-                    ${data.weather.visibility ? `<span>👁️ ${data.weather.visibility}</span>` : ''}
-                    ${data.weather.wind ? `<span>💨 ${data.weather.wind}</span>` : ''}
-                    ${data.weather.qnh ? `<span>📊 QNH ${data.weather.qnh}</span>` : ''}
+                    <span>🌡️ ${escapeHTML(data.weather.temperature || '--')}</span>
+                    ${data.weather.clouds ? `<span>☁️ ${escapeHTML(data.weather.clouds)}</span>` : ''}
+                    ${data.weather.visibility ? `<span>👁️ ${escapeHTML(data.weather.visibility)}</span>` : ''}
+                    ${data.weather.wind ? `<span>💨 ${escapeHTML(data.weather.wind)}</span>` : ''}
+                    ${data.weather.qnh ? `<span>📊 QNH ${escapeHTML(data.weather.qnh)}</span>` : ''}
                 </div>
             `;
         } else if (weatherEl) {
@@ -296,7 +312,7 @@ function updateServerUI(data) {
             if (data.missionStats.situation && Object.keys(data.missionStats.situation).length > 0) {
                 html += `<table class="stats-table-web"><thead><tr><th></th><th class="blue">🔵 BLUE</th><th class="red">🔴 RED</th></tr></thead><tbody>`;
                 for (const [key, val] of Object.entries(data.missionStats.situation)) {
-                    html += `<tr><td>${key}</td><td class="blue">${val.blue ?? '--'}</td><td class="red">${val.red ?? '--'}</td></tr>`;
+                    html += `<tr><td>${escapeHTML(key)}</td><td class="blue">${escapeHTML(String(val.blue ?? '--'))}</td><td class="red">${escapeHTML(String(val.red ?? '--'))}</td></tr>`;
                 }
                 html += `</tbody></table>`;
             }
@@ -305,7 +321,7 @@ function updateServerUI(data) {
                 html += `<h4 class="status-section-title" style="margin-top:1rem">🏆 ${lang === 'tr' ? 'BAŞARILAR' : lang === 'de' ? 'ERFOLGE' : 'ACHIEVEMENTS'}</h4>`;
                 html += `<table class="stats-table-web"><thead><tr><th></th><th class="blue">🔵</th><th class="red">🔴</th></tr></thead><tbody>`;
                 for (const [key, val] of Object.entries(data.missionStats.achievements)) {
-                    html += `<tr><td>${key}</td><td class="blue">${val.blue ?? '--'}</td><td class="red">${val.red ?? '--'}</td></tr>`;
+                    html += `<tr><td>${escapeHTML(key)}</td><td class="blue">${escapeHTML(String(val.blue ?? '--'))}</td><td class="red">${escapeHTML(String(val.red ?? '--'))}</td></tr>`;
                 }
                 html += `</tbody></table>`;
             }
@@ -359,9 +375,11 @@ async function fetchServerStatus() {
 
                 if (servers.length > 0) {
                     allServers = servers;
+                    window.__activeServers = allServers;
                     if (activeServerIndex >= allServers.length) activeServerIndex = 0;
                     renderServerTabs();
                     updateServerUI(allServers[activeServerIndex]);
+                    if (typeof window.renderTheaterMap === 'function') window.renderTheaterMap();
                     return;
                 }
             }
@@ -393,8 +411,10 @@ async function fetchServerStatus() {
                 playerList: data.playerList || data.player_list || data.players_list || []
             };
             allServers = [fallbackServer];
+            window.__activeServers = allServers;
             renderServerTabs();
             updateServerUI(fallbackServer);
+            if (typeof window.renderTheaterMap === 'function') window.renderTheaterMap();
             return;
         } catch (error) {
             console.log('Fallback API failed, using demo data...');
@@ -404,9 +424,11 @@ async function fetchServerStatus() {
     // Both APIs failed — use demo data
     console.log('Using demo server data');
     allServers = DEMO_SERVERS;
+    window.__activeServers = allServers;
     if (activeServerIndex >= allServers.length) activeServerIndex = 0;
     renderServerTabs();
     updateServerUI(allServers[activeServerIndex]);
+    if (typeof window.renderTheaterMap === 'function') window.renderTheaterMap();
 }
 
 // Initialize server status

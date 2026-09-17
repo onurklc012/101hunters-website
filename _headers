@@ -1,0 +1,16 @@
+/*
+  # Clickjacking koruması - iframe'de gösterilmeyi engeller
+  X-Frame-Options: DENY
+  # XSS koruması (eski tarayıcılar için)
+  X-XSS-Protection: 1; mode=block
+  # MIME sniffing engelleme
+  X-Content-Type-Options: nosniff
+  # HTTPS zorunlu (1 yıl boyunca)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  # Referrer bilgisi sızıntısını engelleme
+  Referrer-Policy: strict-origin-when-cross-origin
+  # Tarayıcı özellik kısıtlaması
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  # CSP - Guvenli icerik politikalari
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' https://cdn.discordapp.com https://onurklc012.github.io https://*.basemaps.cartocdn.com https://tiles.stadiamaps.com https://server.arcgisonline.com data:; connect-src 'self' https://discord.com https://onurklc012.github.io https://cdn.discordapp.com https://livemap-worker.101st-hunters.workers.dev; media-src 'self'; font-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+

@@ -1,0 +1,8 @@
+﻿# Cloudflare Pages Redirects / Rewrites
+/basvuru /basvuru.html 200
+/checkride /checkride.html 200
+/tuzuk /101_Hunter_SQN_Kurallari.pdf 200
+/kurallar /101_Hunter_SQN_Kurallari.pdf 200
+
+# Fallback to SPA / index.html
+/* /index.html 200

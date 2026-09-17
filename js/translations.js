@@ -81,7 +81,7 @@ const translations = {
         recruit_apply: "Apply on Discord",
 
         // Server Status Section
-        server_subtitle: "Live Servers (3)",
+        server_subtitle: "Live Servers (4)",
         server_title: "Server Status",
         server_checking: "Checking...",
         server_loading: "Loading mission data...",
@@ -185,7 +185,7 @@ const translations = {
         recruit_apply: "Discord'dan Başvur",
 
         // Server Status Section
-        server_subtitle: "Canlı Sunucular (3)",
+        server_subtitle: "Canlı Sunucular (4)",
         server_title: "Sunucu Durumu",
         server_checking: "Kontrol ediliyor...",
         server_loading: "Görev verileri yükleniyor...",
@@ -289,7 +289,7 @@ const translations = {
         recruit_apply: "Auf Discord bewerben",
 
         // Server Status Section
-        server_subtitle: "Live-Server (3)",
+        server_subtitle: "Live-Server (4)",
         server_title: "Serverstatus",
         server_checking: "Prüfe...",
         server_loading: "Missionsdaten werden geladen...",
