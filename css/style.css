@@ -1307,12 +1307,26 @@ button {
     align-items: center;
     justify-content: center;
     transition: opacity 1s ease, visibility 1s ease;
+    cursor: pointer;
+    animation: intro-failsafe-hide 0.8s ease 3.2s forwards;
+}
+
+@keyframes intro-failsafe-hide {
+    0%, 75% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
 }
 
 .intro.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 
 .intro-content {

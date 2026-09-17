@@ -46,7 +46,7 @@
 
 <body>
     <!-- Intro Screen -->
-    <div class="intro" id="intro">
+    <div class="intro" id="intro" title="Geçmek için tıklayın" style="cursor: pointer;">
         <div class="intro-content">
             <img src="assets/images/dragon.png" alt="Dragon" class="intro-dragon">
             <div class="intro-text">
@@ -56,6 +56,22 @@
             <div class="intro-fire"></div>
         </div>
     </div>
+    <script>
+        // Intro Ekranı Koruması (2.5 saniyede veya tıklandığında hemen kapanır)
+        (function() {
+            function hideIntro() {
+                var el = document.getElementById('intro');
+                if (el) {
+                    el.classList.add('hidden');
+                    document.body.classList.remove('intro-active');
+                    setTimeout(function() { if (el) el.style.display = 'none'; }, 800);
+                }
+            }
+            setTimeout(hideIntro, 2200);
+            var it = document.getElementById('intro');
+            if (it) it.addEventListener('click', hideIntro);
+        })();
+    </script>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
@@ -1021,6 +1037,7 @@
     <!-- Leaflet.js -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/liveMap.js"></script>
+    <script src="js/main.js"></script>
     <!-- Direct Pilot Application Script -->
     <script>
         document.getElementById('directApplyForm')?.addEventListener('submit', async function(e) {
