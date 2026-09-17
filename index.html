@@ -74,7 +74,7 @@
                 <li><a href="#flight-hours" data-i18n="fh_nav">Flight Hours</a></li>
                 <li><a href="#leadership" data-i18n="nav_leadership">Leadership</a></li>
                 <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
-                <li><a href="basvuru.html" class="nav-cta" data-i18n="nav_join">Join Us</a></li>
+                <li><a href="#recruitment" class="nav-cta" data-i18n="nav_join">Join Us</a></li>
             </ul>
 
             <div class="lang-dropdown" id="langDropdown">
@@ -787,24 +787,160 @@
                 </div>
             </div>
 
-            <div class="recruitment-cta reveal" style="text-align: center; display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 2rem;">
-                <a href="basvuru.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 14px 28px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-                    </svg>
-                    <span>Online Başvuru Yap</span>
-                </a>
+            <!-- Embedded Direct Application Form -->
+            <div class="recruitment-form-card reveal" style="max-width: 840px; margin: 2.5rem auto 1.5rem auto; background: rgba(18, 22, 32, 0.9); border: 1px solid rgba(212, 160, 32, 0.3); border-radius: 12px; padding: 35px 25px; box-shadow: 0 12px 35px rgba(0,0,0,0.6); backdrop-filter: blur(10px);">
+                <div style="text-align: center; margin-bottom: 25px;">
+                    <h3 style="font-size: 1.35rem; color: #fff; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
+                        🦅 Aday Pilot <span style="color: var(--color-accent-gold, #f59e0b);">Ön Başvuru Formu</span>
+                    </h3>
+                    <p style="color: var(--color-text-secondary, #94a3b8); font-size: 0.85rem;">
+                        Aşağıdaki formu eksiksiz doldurarak 101. Hunter Squadron Karargahı'na doğrudan başvurunuzu iletebilirsiniz.
+                    </p>
+                </div>
+
+                <div style="background: rgba(15, 23, 42, 0.65); border-left: 4px solid #2563eb; border-radius: 6px; padding: 14px 18px; margin-bottom: 22px; font-size: 0.82rem; line-height: 1.6; color: #cbd5e1;">
+                    <b style="color: #f59e0b;">⚡ Katılım Şartları Özeti:</b> HOTAS ve Baş Takip (TrackIR/VR) şarttır • F-16C veya F/A-18C modülü zorunludur • Cuma 21:00 (Eğitim) & Cts 21:00 (Harekat) sortilerine düzenli katılım • 3 mazeretsiz devamsızlıkta kalıcı ihraç uygulanır.
+                </div>
+
+                <form id="directApplyForm">
+                    <div style="font-size: 0.85rem; font-weight: 700; color: #f59e0b; text-transform: uppercase; margin: 15px 0 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px;">
+                        👤 1. Pilot Bilgileri
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">İsim Soyisim *</label>
+                            <input type="text" id="df_fullname" placeholder="Örn: Onur Kılıç" required style="width:100%; padding:10px 12px; background:#0d1117; border:1px solid #334155; border-radius:6px; color:#fff; font-size:0.85rem; box-sizing:border-box;">
+                        </div>
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">Yaş ve Şehir *</label>
+                            <div style="display:grid; grid-template-columns: 80px 1fr; gap: 8px;">
+                                <input type="number" id="df_age" placeholder="Yaş" min="15" max="70" required style="width:100%; padding:10px 8px; background:#0d1117; border:1px solid #334155; border-radius:6px; color:#fff; font-size:0.85rem; box-sizing:border-box;">
+                                <input type="text" id="df_city" placeholder="Şehir" required style="width:100%; padding:10px 12px; background:#0d1117; border:1px solid #334155; border-radius:6px; color:#fff; font-size:0.85rem; box-sizing:border-box;">
+                            </div>
+                        </div>
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">Discord Kullanıcı Adınız *</label>
+                            <input type="text" id="df_discord" placeholder="Örn: onur_pilot" required style="width:100%; padding:10px 12px; background:#0d1117; border:1px solid #334155; border-radius:6px; color:#fff; font-size:0.85rem; box-sizing:border-box;">
+                        </div>
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">Talep Edilen Callsign (Çağrı Adı) *</label>
+                            <input type="text" id="df_callsign" placeholder="Örn: Hunter 1-1 / Viper" required style="width:100%; padding:10px 12px; background:#0d1117; border:1px solid #334155; border-radius:6px; color:#fff; font-size:0.85rem; box-sizing:border-box;">
+                        </div>
+                    </div>
+
+                    <div style="font-size: 0.85rem; font-weight: 700; color: #f59e0b; text-transform: uppercase; margin: 20px 0 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px;">
+                        ✈️ 2. DCS & Donanım Durumu
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">Jet Modülünüz *</label>
+                            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+                                <label style="background:#0d1117; border:1px solid #334155; padding:6px 10px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:5px;">
+                                    <input type="checkbox" name="df_module" value="F-16C Viper"> F-16C Viper
+                                </label>
+                                <label style="background:#0d1117; border:1px solid #334155; padding:6px 10px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:5px;">
+                                    <input type="checkbox" name="df_module" value="F/A-18C Hornet"> F/A-18C Hornet
+                                </label>
+                                <label style="background:#0d1117; border:1px solid #334155; padding:6px 10px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:5px;">
+                                    <input type="checkbox" name="df_module" value="Diğer Modül"> Diğer
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">DCS Tecrübeniz *</label>
+                            <select id="df_exp" required style="width:100%; padding:10px 12px; background:#0d1117; border:1px solid #334155; border-radius:6px; color:#fff; font-size:0.85rem; box-sizing:border-box;">
+                                <option value="">Seçiniz...</option>
+                                <option value="0-6 Ay (Temel)">0 - 6 Ay (Temel Uçuş)</option>
+                                <option value="6-12 Ay (Orta)">6 - 12 Ay (Sistemler & BVR)</option>
+                                <option value="1-2 Yıl (İleri)">1 - 2 Yıl (BVR + AAR Hakim)</option>
+                                <option value="2+ Yıl (Kıdemli)">2+ Yıl (Tecrübeli Pilot)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">HOTAS (Uçuş Kolu) *</label>
+                            <input type="text" id="df_hotas" placeholder="Örn: TM Warthog / VKB / X56" required style="width:100%; padding:10px 12px; background:#0d1117; border:1px solid #334155; border-radius:6px; color:#fff; font-size:0.85rem; box-sizing:border-box;">
+                        </div>
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">Baş Takip Donanımı *</label>
+                            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+                                <label style="background:#0d1117; border:1px solid #334155; padding:6px 10px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:5px;">
+                                    <input type="radio" name="df_headtrack" value="TrackIR" required> TrackIR
+                                </label>
+                                <label style="background:#0d1117; border:1px solid #334155; padding:6px 10px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:5px;">
+                                    <input type="radio" name="df_headtrack" value="VR Gözlük"> VR Gözlük
+                                </label>
+                                <label style="background:#0d1117; border:1px solid #334155; padding:6px 10px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:5px;">
+                                    <input type="radio" name="df_headtrack" value="OpenTrack"> OpenTrack
+                                </label>
+                                <label style="background:#0d1117; border:1px solid #334155; padding:6px 10px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:5px;">
+                                    <input type="radio" name="df_headtrack" value="Yok"> Yok
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="font-size: 0.85rem; font-weight: 700; color: #f59e0b; text-transform: uppercase; margin: 20px 0 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px;">
+                        📜 3. Takvim & Disiplin Onayı
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">Cuma 21:00 & Cts 21:00 sortilerine düzenli katılır mısınız? *</label>
+                            <div style="display:flex; flex-direction:column; gap:6px; margin-top:4px;">
+                                <label style="background:#0d1117; border:1px solid #334155; padding:8px 12px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:6px;">
+                                    <input type="radio" name="df_schedule" value="Evet, Düzenli Katılırım" required> [ ✓ ] Evet, kesinlikle katılırım.
+                                </label>
+                                <label style="background:#0d1117; border:1px solid #334155; padding:8px 12px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:6px;">
+                                    <input type="radio" name="df_schedule" value="Bazen Sorun Olabilir"> [ ! ] Bazen aksayabilir.
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">3 Mazeretsiz devamsızlıkta kalıcı ihraç kuralını kabul ediyor musunuz? *</label>
+                            <div style="display:flex; flex-direction:column; gap:6px; margin-top:4px;">
+                                <label style="background:#0d1117; border:1px solid #334155; padding:8px 12px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:6px;">
+                                    <input type="radio" name="df_rules" value="Kabul Etti" required> [ ✓ ] Okudum, kesinlikle kabul ediyorum.
+                                </label>
+                                <label style="background:#0d1117; border:1px solid #334155; padding:8px 12px; border-radius:5px; font-size:0.78rem; cursor:pointer; color:#fff; display:flex; align-items:center; gap:6px;">
+                                    <input type="radio" name="df_rules" value="Kabul Etmedi"> [ ✗ ] Kabul etmiyorum.
+                                </label>
+                            </div>
+                        </div>
+                        <div style="grid-column: 1 / -1;">
+                            <label style="display:block; font-size:0.75rem; color:#cbd5e1; margin-bottom:4px; font-weight:600;">Neden 101. Hunter Squadron? (Kısaca kendinizden ve beklentilerinizden bahsedin)</label>
+                            <textarea id="df_reason" placeholder="Filomuza neden katılmak istiyorsunuz?" style="width:100%; height:70px; padding:10px 12px; background:#0d1117; border:1px solid #334155; border-radius:6px; color:#fff; font-size:0.85rem; box-sizing:border-box; resize:vertical;"></textarea>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: center;">
+                        <button type="submit" id="df_submitBtn" class="btn btn-primary" style="padding: 14px 35px; font-size: 0.95rem;">
+                            <span>🚀 Başvuruyu Karargaha Gönder</span>
+                        </button>
+                    </div>
+
+                    <!-- Gönderim Başarılı Mesajı -->
+                    <div id="df_successBox" style="display:none; margin-top:20px; background:rgba(16, 185, 129, 0.15); border:1px solid #10b981; border-radius:8px; padding:20px; text-align:center;">
+                        <div style="font-size:32px; margin-bottom:8px;">🦅</div>
+                        <h4 style="color:#ffffff; margin-bottom:6px; font-size:1.15rem; font-weight:700;">BAŞVURUNUZ ALINDI!</h4>
+                        <p style="font-size:0.85rem; color:#cbd5e1; margin-bottom:15px;">Bilgileriniz 101. Hunter Squadron Karargahı'na ulaştı. Sesli mülakat aşaması için Discord sunucumuza katılınız.</p>
+                        <a href="https://discord.com/invite/101huntersqn" target="_blank" class="btn btn-primary" style="padding:10px 22px; font-size:0.85rem;">
+                            Discord Sunucumuza Katıl
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Alt Butonlar -->
+            <div class="recruitment-cta reveal" style="text-align: center; display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 1.5rem;">
                 <a href="https://discord.com/invite/101huntersqn" target="_blank" rel="noopener"
-                    class="btn btn-secondary" style="font-size: 0.85rem; padding: 14px 28px;">
+                    class="btn btn-secondary" style="font-size: 0.85rem; padding: 12px 24px;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
                     </svg>
-                    <span>Discord Sunucusu</span>
+                    <span>Discord Sunucumuz</span>
                 </a>
                 <a href="101_Hunter_SQN_Kurallari.pdf" target="_blank" rel="noopener"
-                    class="btn btn-secondary" style="font-size: 0.85rem; padding: 14px 28px; border-color: rgba(255,255,255,0.25); color: #cbd5e1;">
+                    class="btn btn-secondary" style="font-size: 0.85rem; padding: 12px 24px; border-color: rgba(255,255,255,0.25); color: #cbd5e1;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
@@ -885,7 +1021,80 @@
     <!-- Leaflet.js -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/liveMap.js"></script>
-    <script src="js/main.js"></script>
+    <!-- Direct Pilot Application Script -->
+    <script>
+        document.getElementById('directApplyForm')?.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('df_submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "⏳ Başvuru İletiliyor...";
+
+            const selectedModules = [];
+            document.querySelectorAll('input[name="df_module"]:checked').forEach(cb => selectedModules.push(cb.value));
+
+            const fullname = document.getElementById('df_fullname').value;
+            const age = document.getElementById('df_age').value;
+            const city = document.getElementById('df_city').value;
+            const discord_id = document.getElementById('df_discord').value;
+            const callsign = document.getElementById('df_callsign').value;
+            const exp = document.getElementById('df_exp').value;
+            const hotas = document.getElementById('df_hotas').value;
+            const headtrack = document.querySelector('input[name="df_headtrack"]:checked')?.value || "Belirtilmedi";
+            const schedule = document.querySelector('input[name="df_schedule"]:checked')?.value || "Belirtilmedi";
+            const rules = document.querySelector('input[name="df_rules"]:checked')?.value || "Belirtilmedi";
+            const reason = document.getElementById('df_reason').value || "Belirtilmedi";
+
+            const payload = {
+                username: "101 Hunter HQ | Web Başvuru Portalı",
+                avatar_url: "https://101huntersqn.com/assets/images/dragon.png",
+                embeds: [{
+                    title: "🦅 YENİ ADAY PİLOT BAŞVURUSU (WEB SİTESİNDEN)",
+                    description: `**${callsign}** (${fullname}) web sitesi üzerinden doğrudan başvuru yaptı!`,
+                    color: 0x2563eb,
+                    fields: [
+                        { name: "👤 Aday Bilgisi", value: `${fullname} (${age} Yaş - ${city})`, inline: true },
+                        { name: "💬 Discord Adı", value: `${discord_id}`, inline: true },
+                        { name: "🎯 Talep Edilen Callsign", value: `**${callsign}**`, inline: true },
+                        { name: "✈️ Modüller", value: selectedModules.join(", ") || "Belirtilmedi", inline: true },
+                        { name: "⏳ DCS Tecrübesi", value: exp, inline: true },
+                        { name: "🕹️ HOTAS & Baş Takip", value: `${hotas} | ${headtrack}`, inline: true },
+                        { name: "📅 Takvim Uyumu (Cuma-Cts)", value: schedule, inline: true },
+                        { name: "📜 3 Devamsızlık İhraç Kuralı", value: rules, inline: true },
+                        { name: "📝 Başvuru Nedeni / Beklenti", value: reason, inline: false }
+                    ],
+                    footer: {
+                        text: "101. Hunter Squadron | 101huntersqn.com",
+                        icon_url: "https://101huntersqn.com/assets/images/patch.png"
+                    },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            const webhookUrl = "https://discord.com/api/webhooks/1550260989973373038/LrL1oAkuX3K3YGJbVCnoLKTtKkRZjT1IGzP6p_8LD2v8c-m6UYUzYrNQ8kbBd4Sfynq9";
+            let sent = false;
+
+            try {
+                const res = await fetch(webhookUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                if (res.ok) sent = true;
+            } catch (err) {
+                console.warn("Direct fetch error:", err);
+            }
+
+            if (sent) {
+                document.getElementById('df_successBox').style.display = 'block';
+                document.getElementById('directApplyForm').reset();
+                submitBtn.style.display = 'none';
+            } else {
+                alert("Başvuru iletilirken bağlantı sorunu yaşandı. Lütfen doğrudan Discord sunucumuza katılarak iletişime geçiniz.");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = "🚀 Başvuruyu Karargaha Gönder";
+            }
+        });
+    </script>
 </body>
 
 </html>
