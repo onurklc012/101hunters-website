@@ -356,17 +356,13 @@
         </div>
 
         <div class="btn-panel">
-            <button type="button" class="btn" onclick="window.print()">🖨️ Formu Doldur & PDF Olarak Kaydet</button>
+            <button type="button" class="btn" id="printBtn">🖨️ Formu Doldur & PDF Olarak Kaydet</button>
             <button type="reset" class="btn btn-reset">Formu Temizle</button>
         </div>
     </form>
 </div>
 
-<script>
-    const now = new Date();
-    const formatted = now.toLocaleDateString('tr-TR') + ' - ' + now.toLocaleTimeString('tr-TR', {hour: '2-digit', minute:'2-digit'});
-    document.getElementById('dateTimeField').value = formatted;
-</script>
+<script src="js/checkride.js"></script>
 
 </body>
 </html>

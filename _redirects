@@ -1,8 +1,9 @@
-﻿# Cloudflare Pages Redirects / Rewrites
-/basvuru /basvuru.html 200
-/checkride /checkride.html 200
-/tuzuk /101_Hunter_SQN_Kurallari.pdf 200
-/kurallar /101_Hunter_SQN_Kurallari.pdf 200
-
-# Fallback to SPA / index.html
-/* /index.html 200
+# Cloudflare Pages redirects / rewrites
+/basvuru   /basvuru.html                  200
+/apply     /basvuru.html                  200
+/checkride /checkride.html                200
+/tuzuk     /101_Hunter_SQN_Kurallari.pdf  200
+/kurallar  /101_Hunter_SQN_Kurallari.pdf  200
+/hq        https://hq.101huntersqn.com/   302
+/giris     https://hq.101huntersqn.com/   302
+/discord   https://discord.com/invite/101huntersqn 302
