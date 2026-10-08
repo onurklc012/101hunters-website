@@ -1,7 +1,6 @@
-# Cloudflare Pages redirects / rewrites
-/basvuru   /basvuru.html                  200
-/apply     /basvuru.html                  200
-/checkride /checkride.html                200
+# Cloudflare Pages redirects. Pages already serves /basvuru for basvuru.html (and redirects
+# basvuru.html → /basvuru), so pages need no rules here — a rewrite to *.html would loop.
+/apply     /basvuru                       301
 /tuzuk     /101_Hunter_SQN_Kurallari.pdf  200
 /kurallar  /101_Hunter_SQN_Kurallari.pdf  200
 /hq        https://hq.101huntersqn.com/   302
