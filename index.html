@@ -20,10 +20,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="css/site.css?v=f3e1759e9c">
-<link rel="preload" as="image" href="assets/img/gallery/aa--2.webp">
+<link rel="stylesheet" href="css/site.css?v=197f6e4eaa">
+<link rel="preload" as="image" href="assets/video/flyby.jpg">
 </head>
 <body>
+<div class="bg-video" aria-hidden="true">
+  <video data-scene="flyby" muted loop playsinline preload="none" poster="assets/video/flyby.jpg" class="on"></video>
+  <video data-scene="launch" muted loop playsinline preload="none"></video>
+  <video data-scene="tanker" muted loop playsinline preload="none"></video>
+  <video data-scene="outside" muted loop playsinline preload="none"></video>
+  <video data-scene="landing" muted loop playsinline preload="none"></video>
+</div>
 
 <header class="site-header" id="top">
   <div class="wrap">
@@ -57,8 +64,7 @@
 
 <main>
   <!-- ── HERO ─────────────────────────────────────────────────────────── -->
-  <section class="hero" id="home">
-    <div class="hero-media"><img src="assets/img/gallery/aa--2.webp" alt=""></div>
+  <section class="hero" id="home" data-scene="flyby">
     <div class="hero-inner">
       <img class="hero-emblem" src="assets/img/dragon.webp" alt="101st Hunter Squadron amblemi" width="132" height="132">
       <div class="eyebrow" data-i18n="hero.eyebrow">DCS World · Sanal Avcı Filosu · Adana</div>
@@ -79,7 +85,7 @@
   </section>
 
   <!-- ── STATS ────────────────────────────────────────────────────────── -->
-  <section class="stats" aria-label="Filo istatistikleri">
+  <section class="stats" aria-label="Filo istatistikleri" data-scene="flyby">
     <div class="wrap panel stats-grid">
       <div class="stat"><div class="num" data-stat="members">—</div><div class="label" data-i18n="stats.members">Filo Üyesi</div></div>
       <div class="stat"><div class="num" data-stat="flight_hours">—</div><div class="label" data-i18n="stats.hours">Uçuş Saati</div></div>
@@ -89,7 +95,7 @@
   </section>
 
   <!-- ── ABOUT ────────────────────────────────────────────────────────── -->
-  <section id="about">
+  <section id="about" data-scene="launch">
     <div class="wrap">
       <div class="about-grid">
         <div class="about-photo reveal">
@@ -117,7 +123,7 @@
   </section>
 
   <!-- ── HOW WE FLY ───────────────────────────────────────────────────── -->
-  <section id="howwefly" class="section-alt">
+  <section id="howwefly" class="section-alt" data-scene="launch">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="how.eyebrow">Haftalık Düzen</div>
@@ -162,7 +168,7 @@
     </div>
   </section>
   <!-- ── SERVERS ──────────────────────────────────────────────────────── -->
-  <section id="servers">
+  <section id="servers" data-scene="tanker">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="servers.eyebrow">Canlı Durum</div>
@@ -174,7 +180,7 @@
   </section>
 
   <!-- ── LEADERBOARDS ─────────────────────────────────────────────────── -->
-  <section id="leaderboards" class="section-alt">
+  <section id="leaderboards" class="section-alt" data-scene="tanker">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="boards.eyebrow">Onur Kürsüsü</div>
@@ -193,7 +199,7 @@
   </section>
 
   <!-- ── TESTIMONIALS (shown once assets/testimonials.json has entries) ── -->
-  <section id="voices" hidden>
+  <section id="voices" hidden data-scene="outside">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="voices.eyebrow">Pilotlarımız Anlatıyor</div>
@@ -204,7 +210,7 @@
   </section>
 
   <!-- ── OPERATIONS ───────────────────────────────────────────────────── -->
-  <section id="operations">
+  <section id="operations" data-scene="outside">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="ops.eyebrow">Ne Yapıyoruz</div>
@@ -222,7 +228,7 @@
   </section>
 
   <!-- ── LEADERSHIP ───────────────────────────────────────────────────── -->
-  <section id="leadership" class="section-alt">
+  <section id="leadership" class="section-alt" data-scene="outside">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="lead.eyebrow">Komuta</div>
@@ -248,7 +254,7 @@
   </section>
 
   <!-- ── GALLERY ──────────────────────────────────────────────────────── -->
-  <section id="gallery">
+  <section id="gallery" data-scene="outside">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="gallery.eyebrow">Görev Başında</div>
@@ -259,7 +265,7 @@
   </section>
 
   <!-- ── FAQ ──────────────────────────────────────────────────────────── -->
-  <section id="faq" class="section-alt">
+  <section id="faq" class="section-alt" data-scene="landing">
     <div class="wrap faq-wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="faq.eyebrow">Merak Edilenler</div>
@@ -278,7 +284,7 @@
   </section>
 
   <!-- ── JOIN ─────────────────────────────────────────────────────────── -->
-  <section id="join">
+  <section id="join" data-scene="landing">
     <div class="wrap">
       <div class="join reveal">
         <div class="eyebrow" data-i18n="join.eyebrow">Avlanmaya Hazır Mısın?</div>
@@ -334,7 +340,7 @@
 <div class="toast" id="toast" hidden role="status"></div>
 
 <script src="js/i18n.js?v=4d2169f00c" defer></script>
-<script src="js/site.js?v=f7600c11b3" defer></script>
+<script src="js/site.js?v=1857e8a113" defer></script>
 <script src="js/music.js?v=753597f70d" defer></script>
 </body>
 </html>

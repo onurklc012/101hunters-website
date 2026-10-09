@@ -67,6 +67,47 @@
     if (year) year.textContent = new Date().getFullYear();
   }
 
+  // ── background video: the scene of the section in the middle of the screen ─────────────────
+  // Clips load only when their part of the page is reached. Phones, data saver and "reduce
+  // motion" get the still poster of each scene instead of video.
+  function setupBackground() {
+    const layer = $('.bg-video');
+    if (!layer) return;
+    const videos = new Map([...layer.querySelectorAll('video')].map((v) => [v.dataset.scene, v]));
+    const motion = !navigator.connection?.saveData && !matchMedia('(prefers-reduced-motion: reduce)').matches
+      && matchMedia('(min-width: 760px)').matches;
+    const sections = [...document.querySelectorAll('section[data-scene]')];
+    let current = null;
+
+    const show = (scene) => {
+      if (!scene || scene === current) return;
+      current = scene;
+      videos.forEach((v, name) => {
+        if (name === scene) {
+          if (!v.getAttribute('poster')) v.poster = `assets/video/${name}.jpg`;
+          if (motion && !v.getAttribute('src')) v.src = `assets/video/${name}.mp4`;
+          v.classList.add('on');
+          if (motion) v.play().catch(() => {});
+        } else if (v.classList.contains('on')) {
+          v.classList.remove('on');
+          setTimeout(() => { if (!v.classList.contains('on')) v.pause(); }, 1100);   // after the fade
+        }
+      });
+    };
+
+    let queued = false;
+    const pick = () => {
+      queued = false;
+      const mid = innerHeight / 2;
+      const hit = sections.find((s) => !s.hidden && s.getBoundingClientRect().top <= mid && s.getBoundingClientRect().bottom > mid);
+      show(hit?.dataset.scene ?? (scrollY < 200 ? 'flyby' : current));
+    };
+    addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(pick); } }, { passive: true });
+    addEventListener('resize', pick);
+    current = null;
+    pick();
+  }
+
   // ── next squadron sortie: Friday 21:00 training, Saturday 21:00 operations (Turkey, UTC+3) ──
   const SORTIES = [{ day: 5, key: 'sortie.training' }, { day: 6, key: 'sortie.ops' }];
   const TR_OFFSET_H = 3;                          // Turkey has no daylight saving time
@@ -267,6 +308,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     setupChrome();
     if (!$('#serverList')) return;               // other pages only need the chrome
+    setupBackground();
     setupBoardTabs();
     setupGallery();
     loadSquadron();
