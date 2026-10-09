@@ -74,8 +74,9 @@
     const layer = $('.bg-video');
     if (!layer) return;
     const videos = new Map([...layer.querySelectorAll('video')].map((v) => [v.dataset.scene, v]));
-    const motion = !navigator.connection?.saveData && !matchMedia('(prefers-reduced-motion: reduce)').matches
-      && matchMedia('(min-width: 760px)').matches;
+    // Phones play the video too (muted + playsinline is allowed to autoplay); only data saver /
+    // reduced motion get the still frame.
+    const motion = !navigator.connection?.saveData && !matchMedia('(prefers-reduced-motion: reduce)').matches;
     const sections = [...document.querySelectorAll('section[data-scene]')];
     let current = null;
 
@@ -104,6 +105,14 @@
     };
     addEventListener('scroll', () => { if (!queued) { queued = true; requestAnimationFrame(pick); } }, { passive: true });
     addEventListener('resize', pick);
+    // A phone's power saver can block autoplay: start the current scene on the first touch;
+    // pause in a background tab, carry on when the visitor comes back.
+    const playCurrent = () => { const v = videos.get(current); if (motion && v?.getAttribute('src')) v.play().catch(() => {}); };
+    addEventListener('touchstart', playCurrent, { passive: true });
+    addEventListener('pointerdown', playCurrent, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) videos.get(current)?.pause(); else playCurrent();
+    });
     current = null;
     pick();
   }
