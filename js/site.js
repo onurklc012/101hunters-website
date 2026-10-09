@@ -119,6 +119,9 @@
 
   // ── servers ─────────────────────────────────────────────────────────────
   let lastStatus = null;
+  // DCS type names → what pilots call them ("F-16C 50" → "F-16C", "FA-18C hornet" → "F/A-18C")
+  const prettyAircraft = (type) => type.replace(/^FA-18C hornet$/i, 'F/A-18C').replace(/^F-16C 50$/, 'F-16C')
+    .replace(/^F-15ESE$/, 'F-15E').replace(/^AH-64D BLK II$/, 'AH-64D');
 
   function renderServers() {
     const box = $('#serverList');
@@ -148,6 +151,8 @@
         h('div', {}, h('dt', {}, t('srv.mission')), h('dd', {}, (s.mission || '—').replace(/_/g, ' '))),
         h('div', {}, h('dt', {}, t('srv.map')), h('dd', {}, s.theatre || '—')),
         h('div', {}, h('dt', {}, t('srv.players')), h('dd', {}, s.state === 'online' ? String(s.players) : '—'))),
+      s.pilots?.length ? h('div', { class: 'pilots', 'aria-label': t('srv.flying') },
+        ...s.pilots.map((p) => h('span', {}, p.name, p.aircraft ? h('small', {}, prettyAircraft(p.aircraft)) : null))) : null,
       s.state !== 'offline' && (s.address || s.srs?.address) ? h('div', { class: 'connect' },
         s.address ? copyBtn(t('srv.game'), s.address) : null,
         s.srs?.address ? copyBtn(t('srv.srs'), s.srs.address) : null) : null)));

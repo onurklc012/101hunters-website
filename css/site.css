@@ -381,3 +381,43 @@ textarea { min-height: 120px; resize: vertical; }
 .community-text .dot { display: inline-block; vertical-align: middle; margin-left: 2px; }
 .community-cta { padding: 10px 16px; border-radius: 999px; background: #5865f2; color: #fff; font: 700 13.5px/1 var(--font-head); white-space: nowrap; }
 @media (max-width: 520px) { .community { flex-wrap: wrap; } .community-cta { width: 100%; text-align: center; } }
+
+/* ── detail sections (about facts, weekly rhythm, infrastructure / values) ── */
+.h2-left { font-size: clamp(28px, 4vw, 40px); margin: 10px 0 18px; }
+.facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin: 26px 0 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); overflow: hidden; }
+.facts div { padding: 14px 18px; }
+.facts div:nth-child(odd) { border-right: 1px solid var(--line); }
+.facts div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+.facts dt { font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--faint); }
+.facts dd { margin: 4px 0 0; font: 700 15px/1.3 var(--font-head); color: var(--text); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tags span { padding: 7px 13px; border-radius: 999px; background: var(--sky-soft); color: #0f4fa8; font-size: 13px; font-weight: 600; }
+
+.week { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 900px) { .week { grid-template-columns: 1fr; } }
+.week-card { display: flex; gap: 18px; padding: 24px; align-items: flex-start; }
+.week-day { flex: none; width: 86px; padding: 12px 0; border-radius: 14px; text-align: center; background: var(--grad-sky); color: #fff; }
+.week-day.sun { background: var(--grad-sun); }
+.week-day.free { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+.week-day span { display: block; font-size: 12px; font-weight: 600; opacity: 0.9; }
+.week-day b { display: block; font: 800 20px/1.2 var(--font-head); }
+.week-card h3 { font-size: 18px; margin-bottom: 6px; }
+.week-card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 22px; }
+@media (max-width: 860px) { .pillars { grid-template-columns: 1fr; } }
+.pillar { padding: 28px; border-radius: var(--radius); background: var(--bg); border: 1px solid var(--line); }
+.pillar h3 { font-size: 19px; margin-bottom: 14px; }
+.icon-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.icon-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--muted); }
+.icon-list b { color: var(--text); }
+.icon-list svg, .card .ico svg, .chip-ico { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--sky); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.icon-list svg { margin-top: 1px; }
+.card .ico svg { width: 26px; height: 26px; }
+.chip-ico { width: 17px; height: 17px; }
+
+/* pilots currently flying, on a server card */
+.pilots { display: flex; flex-wrap: wrap; gap: 6px; }
+.pilots span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: #e9f8ef; color: #166534; font-size: 12.5px; font-weight: 600; }
+.pilots small { color: #3f7a55; font-weight: 500; }
+.eyebrow { letter-spacing: 0.18em; font-size: 11.5px; }

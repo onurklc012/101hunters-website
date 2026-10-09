@@ -73,7 +73,7 @@
       </div>
       <div class="hero-chips">
         <span class="chip" aria-live="polite"><span class="dot" id="liveDot"></span><span id="liveText" data-i18n="live.checking">Sunucular kontrol ediliyor…</span></span>
-        <span class="chip">🗓️ <span id="nextSortie">—</span></span>
+        <span class="chip"><svg class="chip-ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span id="nextSortie">—</span></span>
       </div>
     </div>
   </section>
@@ -98,24 +98,71 @@
         </div>
         <div class="about-text reveal">
           <div class="eyebrow" data-i18n="about.eyebrow">Biz Kimiz</div>
-          <h2 style="font-size:clamp(28px,4vw,40px);margin:10px 0 18px" data-i18n="about.title">Avcılar Hakkında</h2>
+          <h2 class="h2-left" data-i18n="about.title">Avcılar Hakkında</h2>
           <p data-i18n="about.p1">101st Hunter Squadron, en gerçekçi muharebe uçuş simülasyonu deneyimini yaşatmaya adanmış bir DCS World sanal avcı filosudur. Adana merkezli filomuz, taktik mükemmelliğe ve gerçekçi askeri havacılığa tutkuyla bağlı pilotları bir araya getirir.</p>
           <p data-i18n="about.p2">Ağırlıklı olarak F-16 Fighting Falcon ve F/A-18C Hornet uçuruyor; hem hava-hava muharebede hem de hassas hava-yer görevlerinde ustalaşıyoruz. Takım çalışması, sürekli eğitim ve en yüksek muharebe standartları filomuzun temelidir.</p>
-          <div class="aircraft">
-            <div><b>🦅 F-16C Viper</b><span data-i18n="ac.f16">Çok rollü ana platform</span></div>
-            <div><b>🐝 F/A-18C Hornet</b><span data-i18n="ac.f18">Uçak gemisi operasyonları</span></div>
-            <div><b>🐱 F-14 Tomcat</b><span data-i18n="ac.f14">Filo savunma önleyicisi</span></div>
-            <div><b>🦅 F-15C/E Eagle</b><span data-i18n="ac.f15">Hava üstünlüğü ve taarruz</span></div>
-            <div><b>🚁 AH-64D · Ka-50</b><span data-i18n="ac.helo">Taarruz helikopterleri</span></div>
-            <div><b>✈️ Su-27 · Su-33 · Su-25T</b><span data-i18n="ac.su">Rus jetleri ve CAS</span></div>
+          <dl class="facts">
+            <div><dt data-i18n="fact.founded">Kuruluş</dt><dd>2025 · Adana</dd></div>
+            <div><dt data-i18n="fact.platform">Ana platform</dt><dd>F-16C · F/A-18C</dd></div>
+            <div><dt data-i18n="fact.sorties">Resmî sorti</dt><dd data-i18n="fact.sorties.v">Haftada 2</dd></div>
+            <div><dt data-i18n="fact.servers">Sunucu</dt><dd data-i18n="fact.servers.v">6 DCS sunucusu</dd></div>
+          </dl>
+          <div class="tags" aria-label="Uçtuğumuz uçaklar">
+            <span>F-16C Viper</span><span>F/A-18C Hornet</span><span>F-14 Tomcat</span><span>F-15C/E Eagle</span>
+            <span>AH-64D Apache</span><span>Ka-50</span><span>Su-27 · Su-33</span><span>Su-25T</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── HOW WE FLY ───────────────────────────────────────────────────── -->
+  <section id="howwefly" class="section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow" data-i18n="how.eyebrow">Haftalık Düzen</div>
+        <h2 data-i18n="how.title">Nasıl Uçuyoruz</h2>
+        <p data-i18n="how.lead">Her hafta aynı ritim: bir akşam eğitim, bir akşam harekât. Aradaki günlerde sunucularımız serbest uçuşa açık.</p>
+      </div>
+      <div class="week">
+        <article class="panel week-card reveal">
+          <div class="week-day"><span data-i18n="how.fri">Cuma</span><b>21:00</b></div>
+          <div><h3 data-i18n="how.fri.t">Eğitim Sortisi</h3><p data-i18n="how.fri.p">Kol ve formasyon uçuşu, havada yakıt ikmali, telsiz ve brevity disiplini. Aday pilotlar check-ride'a burada hazırlanır.</p></div>
+        </article>
+        <article class="panel week-card reveal">
+          <div class="week-day sun"><span data-i18n="how.sat">Cumartesi</span><b>21:00</b></div>
+          <div><h3 data-i18n="how.sat.t">Harekât</h3><p data-i18n="how.sat.p">Brifingle başlayan, paketler halinde uçulan görevler: hava üstünlüğü, taarruz ve SEAD. Dönüşte debrif.</p></div>
+        </article>
+        <article class="panel week-card reveal">
+          <div class="week-day free"><span data-i18n="how.any">Her gün</span><b>7/24</b></div>
+          <div><h3 data-i18n="how.any.t">Serbest Uçuş</h3><p data-i18n="how.any.p">Eğitim ve serbest aktivite sunucumuz ile dinamik kampanya sunucularımız her an açık; tek başına ya da kolla uç.</p></div>
+        </article>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3 data-i18n="infra.title">Altyapımız</h3>
+          <ul class="icon-list">
+            <li><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/></svg><span data-i18n="infra.1">Kendi DCS sunucularımız: BVR, Suriye, Kafkasya, İncirlik ve Sina harekât alanları</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M4.9 19.1a10 10 0 0 1 0-14.2M7.8 16.2a6 6 0 0 1 0-8.4M16.2 7.8a6 6 0 0 1 0 8.4M19.1 4.9a10 10 0 0 1 0 14.2"/><circle cx="12" cy="12" r="2"/></svg><span data-i18n="infra.2">Her sunucuda SRS telsiz: gerçekçi frekanslarla haberleşme</span></li>
+            <li><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 9 5 3-5 3z"/></svg><span data-i18n="infra.3">Tacview kayıtları ile her sortinin debrifi</span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M8 17V9M13 17V5M18 17v-6"/></svg><span data-i18n="infra.4">Uçuş saati, ikmal ve vuruşların canlı istatistikleri</span></li>
+          </ul>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i18n="values.title">Değerlerimiz</h3>
+          <ul class="icon-list">
+            <li><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg><span><b data-i18n="values.1.t">Disiplin</b> — <span data-i18n="values.1">lidere ve brifinge sadakat, temiz telsiz</span></span></li>
+            <li><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><b data-i18n="values.2.t">Takım</b> — <span data-i18n="values.2">kimse kolunu yalnız bırakmaz</span></span></li>
+            <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><span><b data-i18n="values.3.t">Gerçekçilik</b> — <span data-i18n="values.3">gerçek dünya taktik ve usulleri</span></span></li>
+            <li><svg viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg><span><b data-i18n="values.4.t">Gelişim</b> — <span data-i18n="values.4">her sorti bir öncekinden iyi</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- ── SERVERS ──────────────────────────────────────────────────────── -->
-  <section id="servers" class="section-alt">
+  <section id="servers">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="servers.eyebrow">Canlı Durum</div>
@@ -127,7 +174,7 @@
   </section>
 
   <!-- ── LEADERBOARDS ─────────────────────────────────────────────────── -->
-  <section id="leaderboards">
+  <section id="leaderboards" class="section-alt">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="boards.eyebrow">Onur Kürsüsü</div>
@@ -157,25 +204,25 @@
   </section>
 
   <!-- ── OPERATIONS ───────────────────────────────────────────────────── -->
-  <section id="operations" class="section-alt">
+  <section id="operations">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="ops.eyebrow">Ne Yapıyoruz</div>
         <h2 data-i18n="ops.title">Operasyonlar</h2>
       </div>
       <div class="cards">
-        <article class="panel card reveal"><div class="ico">🎓</div><h3 data-i18n="ops.1.t">Eğitim</h3><p data-i18n="ops.1">Temel uçuştan ileri muharebe taktiklerine kadar kapsamlı eğitim programları. Her pilotun tam potansiyeline ulaşmasını sağlıyoruz.</p></article>
-        <article class="panel card reveal"><div class="ico">⚔️</div><h3 data-i18n="ops.2.t">Muharebe Görevleri</h3><p data-i18n="ops.2">Hava üstünlüğü, taarruz paketleri, SEAD operasyonları ve dinamik kampanyalarla düzenli muharebe görevleri.</p></article>
-        <article class="panel card reveal"><div class="ico">🤝</div><h3 data-i18n="ops.3.t">Ortak Operasyonlar</h3><p data-i18n="ops.3">Diğer filolar ve topluluklarla ortak tatbikatlar; takım çalışmasını sınayan büyük çaplı muharebeler.</p></article>
-        <article class="panel card reveal"><div class="ico">🏆</div><h3 data-i18n="ops.4.t">Rekabetçi Etkinlikler</h3><p data-i18n="ops.4">Turnuvalar, Red Flag tatbikatları ve Avcıların sanal gökyüzündeki üstünlüğünü kanıtladığı etkinlikler.</p></article>
-        <article class="panel card reveal"><div class="ico">📡</div><h3 data-i18n="ops.5.t">Görev Planlama</h3><p data-i18n="ops.5">Detaylı brifingler, taktik planlama ve debrifingler. Gerçek askeri planlama ve icra usullerini öğrenin.</p></article>
-        <article class="panel card reveal"><div class="ico">🎮</div><h3 data-i18n="ops.6.t">Serbest Uçuşlar</h3><p data-i18n="ops.6">Her sorti ciddi olmak zorunda değil! Filo arkadaşlarınızla serbest uçuşlar ve eğlenceli etkinlikler.</p></article>
+        <article class="panel card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><h3 data-i18n="ops.1.t">Eğitim</h3><p data-i18n="ops.1">Temel uçuştan ileri muharebe taktiklerine kadar kapsamlı eğitim programları. Her pilotun tam potansiyeline ulaşmasını sağlıyoruz.</p></article>
+        <article class="panel card reveal"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3 data-i18n="ops.2.t">Muharebe Görevleri</h3><p data-i18n="ops.2">Hava üstünlüğü, taarruz paketleri, SEAD operasyonları ve dinamik kampanyalarla düzenli muharebe görevleri.</p></article>
+        <article class="panel card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 data-i18n="ops.3.t">Ortak Operasyonlar</h3><p data-i18n="ops.3">Diğer filolar ve topluluklarla ortak tatbikatlar; takım çalışmasını sınayan büyük çaplı muharebeler.</p></article>
+        <article class="panel card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div><h3 data-i18n="ops.4.t">Rekabetçi Etkinlikler</h3><p data-i18n="ops.4">Turnuvalar, Red Flag tatbikatları ve Avcıların sanal gökyüzündeki üstünlüğünü kanıtladığı etkinlikler.</p></article>
+        <article class="panel card reveal"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9zM9 12h6M9 16h4"/></svg></div><h3 data-i18n="ops.5.t">Görev Planlama</h3><p data-i18n="ops.5">Detaylı brifingler, taktik planlama ve debrifingler. Gerçek askeri planlama ve icra usullerini öğrenin.</p></article>
+        <article class="panel card reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div><h3 data-i18n="ops.6.t">Serbest Uçuşlar</h3><p data-i18n="ops.6">Her sorti ciddi olmak zorunda değil! Filo arkadaşlarınızla serbest uçuşlar ve eğlenceli etkinlikler.</p></article>
       </div>
     </div>
   </section>
 
   <!-- ── LEADERSHIP ───────────────────────────────────────────────────── -->
-  <section id="leadership">
+  <section id="leadership" class="section-alt">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="lead.eyebrow">Komuta</div>
@@ -201,7 +248,7 @@
   </section>
 
   <!-- ── GALLERY ──────────────────────────────────────────────────────── -->
-  <section id="gallery" class="section-alt">
+  <section id="gallery">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="gallery.eyebrow">Görev Başında</div>
@@ -212,7 +259,7 @@
   </section>
 
   <!-- ── FAQ ──────────────────────────────────────────────────────────── -->
-  <section id="faq">
+  <section id="faq" class="section-alt">
     <div class="wrap faq-wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="faq.eyebrow">Merak Edilenler</div>
