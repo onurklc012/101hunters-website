@@ -4,7 +4,7 @@
   const EN = {
     'brand.sub': 'Fighter Squadron',
     'step.1.t': 'Apply', 'step.1': 'Fill in the short form — HOTAS, head tracking and the F-16C or F/A-18C module are all you need.',
-    'step.2.t': 'Meet us', 'step.2': 'A short voice interview on Discord.',
+    'step.2.t': 'Meet us', 'step.2': 'A short voice meeting on Discord.',
     'step.3.t': 'Training', 'step.3': 'Friday 21:00 training sorties: formation flying and air-to-air refuelling.',
     'step.4.t': 'Check-ride', 'step.4': 'Pass it and fly the Saturday operations as a combat pilot.',
     'join.discord': 'Join our Discord',
@@ -17,7 +17,7 @@
     'faq.4.q': 'How often do you fly?', 'faq.4.a': 'Training every Friday 21:00 and operations every Saturday 21:00 (Turkey time). Three unexcused absences end your membership.',
     'faq.5.q': 'What is the check-ride?', 'faq.5.a': 'The flight exam before becoming a combat pilot: ground and take-off discipline, formation, radio and brevity, landing, flight safety and 6,000 lbs of air-to-air refuelling in at most 5 contacts.',
     'faq.6.q': 'Can I fly on your servers without joining?', 'faq.6.a': 'Yes, our servers are public. Game and SRS radio addresses are on the server cards above — click to copy.',
-    'faq.7.q': 'What happens after I apply?', 'faq.7.a': 'Your application goes straight to squadron headquarters. We contact you on Discord for a voice interview.',
+    'faq.7.q': 'What happens after I apply?', 'faq.7.a': 'Your application goes straight to squadron headquarters. We contact you on Discord for a voice meeting.',
     'sortie.training': 'Friday 21:00 Training (TRT)', 'sortie.ops': 'Saturday 21:00 Operations (TRT)', 'sortie.now': 'airborne now!',
     'sortie.dh': 'in {d}d {h}h', 'sortie.hm': 'in {h}h {m}m', 'sortie.m': 'in {m} min',
     'nav.about': 'About', 'nav.servers': 'Servers', 'nav.map': 'Live Map', 'nav.boards': 'Leaderboards',
@@ -69,7 +69,7 @@
     'board.none': 'No data yet.', 'board.updated': 'Updated {t} · refreshes automatically',
     'unit.h': 'h', 'unit.refuel': 'refuels', 'unit.kills': 'kills',
     // application page
-    'ap.title': 'Pilot Application', 'ap.lead': 'Fill in the form completely. Your application goes straight to squadron headquarters; we will contact you on Discord for a voice interview.',
+    'ap.title': 'Pilot Application', 'ap.lead': 'Fill in the form completely. Your application goes straight to squadron headquarters; we will contact you on Discord for a voice meeting.',
     'ap.back': '← Home', 'ap.s1': '👤 Pilot details', 'ap.s2': '✈️ DCS & hardware', 'ap.s3': '📜 Schedule & discipline',
     'ap.name': 'Full name', 'ap.age': 'Age', 'ap.city': 'City', 'ap.discord': 'Discord username', 'ap.callsign': 'Requested callsign',
     'ap.dcsname': 'In-game (DCS) name', 'ap.dcsname.h': 'So we can find your flight statistics (optional).',
@@ -82,7 +82,7 @@
     'ap.send': '🚀 Send application', 'ap.sending': 'Sending…', 'ap.need': 'Please fill in the required fields: {f}',
     'ap.module.need': 'Please choose at least one jet module.', 'ap.fail': 'The application could not be sent: {e}',
     'ap.offline': 'Headquarters cannot be reached right now. Please try again later or write to us on Discord.',
-    'ap.ok.t': 'APPLICATION RECEIVED!', 'ap.ok': 'Your details reached the 101st Hunter Squadron headquarters. Join our Discord server and wait for the voice interview call.',
+    'ap.ok.t': 'APPLICATION RECEIVED!', 'ap.ok': 'Your details reached the 101st Hunter Squadron headquarters. Join our Discord server and wait for the voice meeting invitation.',
     'ap.side.t': 'Requirements', 'ap.side.1': 'HOTAS and head tracking (TrackIR / VR / OpenTrack).', 'ap.side.2': 'DCS: F-16C Viper or F/A-18C Hornet.',
     'ap.side.3': 'Friday 21:00 (training) and Saturday 21:00 (operations).', 'ap.side.4': '3 unexcused absences = removal.',
     'ap.side.5': 'Accepted candidates fly training sorties until they pass the check-ride (AAR 6,000 lbs in max. 5 contacts + formation).',
@@ -102,7 +102,7 @@
     'ap.fail': 'Başvuru gönderilemedi: {e}', 'ap.sending': 'Gönderiliyor…',
     'ap.offline': 'Karargaha şu an ulaşılamıyor. Lütfen biraz sonra tekrar deneyin ya da Discord\'dan yazın.',
     'ap.ok.t': 'BAŞVURUNUZ ALINDI!',
-    'ap.ok': 'Bilgileriniz 101. Hunter Squadron Karargahı\'na ulaştı. Discord sunucumuza katılıp sesli mülakat çağrısını bekleyin.',
+    'ap.ok': 'Bilgileriniz 101. Hunter Squadron Karargahı\'na ulaştı. Discord sunucumuza katılıp sesli toplantı davetini bekleyin.',
     'ap.discord': 'Discord Sunucumuza Katıl',
   };
 
