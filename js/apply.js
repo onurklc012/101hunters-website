@@ -57,7 +57,7 @@
         const { h } = window.SITE;
         document.getElementById('formArea').replaceChildren(h('div', { class: 'panel success' },
           h('div', { class: 'big' }, '🦅'), h('h2', {}, t('ap.ok.t')), h('p', {}, t('ap.ok')),
-          h('a', { class: 'btn btn-fire', href: 'https://discord.com/invite/101huntersqn', target: '_blank', rel: 'noopener' }, t('ap.discord'))));
+          h('a', { class: 'btn btn-fire', href: 'https://discord.gg/101huntersqn', target: '_blank', rel: 'noopener' }, t('ap.discord'))));
         scrollTo({ top: 0, behavior: 'smooth' });
       } catch {
         showError(t('ap.offline'));

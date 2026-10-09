@@ -209,6 +209,30 @@
     });
   }
 
+  // ── Discord community card ──────────────────────────────────────────────
+  async function loadDiscord() {
+    try {
+      const d = await getJSON('/discord');
+      if (d.members) $('#dcMembers').textContent = fmt(d.members);
+      if (d.online) $('#dcOnline').textContent = fmt(d.online);
+      if (d.invite) $('#discordCard').href = d.invite;
+    } catch { /* card still links to Discord */ }
+  }
+
+  // ── pilot testimonials (assets/testimonials.json: [{quote, name, role}]) ─
+  async function loadVoices() {
+    const section = $('#voices');
+    if (!section) return;
+    let items = [];
+    try { items = await (await fetch('assets/testimonials.json', { cache: 'no-cache' })).json(); } catch { return; }
+    if (!Array.isArray(items) || !items.length) return;
+    const initials = (n) => String(n).replace(/^\W*101\W*/, '').slice(0, 2).toUpperCase();
+    $('#voiceList').replaceChildren(...items.map((v) => h('figure', { class: 'panel voice', style: 'margin:0' },
+      h('blockquote', {}, v.quote),
+      h('figcaption', { class: 'who' }, h('span', {}, initials(v.name)), h('span', {}, h('b', {}, v.name), v.role ? h('small', {}, v.role) : null)))));
+    section.hidden = false;
+  }
+
   // ── gallery + lightbox ──────────────────────────────────────────────────
   async function setupGallery() {
     const grid = $('#galleryGrid');
@@ -243,6 +267,8 @@
     loadSquadron();
     loadStatus();
     loadBoards();
+    loadDiscord();
+    loadVoices();
     setInterval(loadStatus, 30000);
     renderSortie();
     setInterval(renderSortie, 30000);
