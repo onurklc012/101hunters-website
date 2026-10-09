@@ -2,7 +2,14 @@
    Dynamic texts (built by site.js) use I18N.t(key, vars). The choice is remembered per browser. */
 (function () {
   const EN = {
-    'brand.sub': 'FIGHTER SQUADRON',
+    'brand.sub': 'Fighter Squadron',
+    'step.1.t': 'Apply', 'step.1': 'Fill in the short form — HOTAS, head tracking and the F-16C or F/A-18C module are all you need.',
+    'step.2.t': 'Meet us', 'step.2': 'A short voice interview on Discord.',
+    'step.3.t': 'Training', 'step.3': 'Friday 21:00 training sorties: formation flying and air-to-air refuelling.',
+    'step.4.t': 'Check-ride', 'step.4': 'Pass it and fly the Saturday operations as a combat pilot.',
+    'join.discord': 'Join our Discord',
+    'sortie.training': 'Friday 21:00 Training (TRT)', 'sortie.ops': 'Saturday 21:00 Operations (TRT)', 'sortie.now': 'airborne now!',
+    'sortie.dh': 'in {d}d {h}h', 'sortie.hm': 'in {h}h {m}m', 'sortie.m': 'in {m} min',
     'nav.about': 'About', 'nav.servers': 'Servers', 'nav.map': 'Live Map', 'nav.boards': 'Leaderboards',
     'nav.ops': 'Operations', 'nav.academy': 'Academy', 'nav.gallery': 'Gallery', 'nav.join': 'Join', 'nav.login': 'Member Login',
     'hero.eyebrow': 'DCS World · Virtual Fighter Squadron · Adana', 'hero.join': 'Join the Squadron',
@@ -72,6 +79,8 @@
     'ap.discord': 'Join our Discord', 'ap.rulespdf': 'Squadron Rules (PDF)',
   };
   const TR = {
+    'sortie.training': 'Cuma 21:00 Eğitim', 'sortie.ops': 'Cumartesi 21:00 Harekât', 'sortie.now': 'şu an havada!',
+    'sortie.dh': '{d} gün {h} sa kaldı', 'sortie.hm': '{h} sa {m} dk kaldı', 'sortie.m': '{m} dk kaldı',
     'st.online': 'Çevrimiçi', 'st.starting': 'Açılıyor', 'st.maintenance': 'Bakımda', 'st.offline': 'Kapalı',
     'srv.mission': 'Görev', 'srv.map': 'Harita', 'srv.players': 'Çevrimiçi pilot', 'srv.game': 'Oyun sunucusu', 'srv.srs': 'SRS telsiz',
     'srv.copy': 'kopyala', 'srv.copied': 'Kopyalandı: {v}', 'srv.none': 'Şu anda sunucu bilgisi yok.',

@@ -4,35 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>101st Hunter Squadron | DCS Sanal Avcı Filosu</title>
-<meta name="description" content="101st Hunter Squadron (101. Avcı Filosu) — Adana merkezli DCS World sanal savaş filosu. Canlı sunucular, sıralamalar, eğitim ve filoya katılım.">
-<meta name="theme-color" content="#05060b">
+<meta name="description" content="101st Hunter Squadron (101. Avcı Filosu) — Adana merkezli DCS World sanal savaş filosu. Canlı sunucular, sıralamalar ve filoya katılım.">
+<meta name="theme-color" content="#1673e6">
 <meta property="og:title" content="101st Hunter Squadron">
 <meta property="og:description" content="There are 2 types of squadrons; Hunters and our targets.">
-<meta property="og:image" content="https://101huntersqn.com/assets/img/hero.webp">
+<meta property="og:image" content="https://101huntersqn.com/assets/img/gallery/aa--2.webp">
 <meta property="og:url" content="https://101huntersqn.com/">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="css/site.css">
-<link rel="preload" as="image" href="assets/img/hero.webp">
+<link rel="preload" as="image" href="assets/img/gallery/aa--2.webp">
 </head>
 <body>
 
 <header class="site-header" id="top">
   <div class="wrap">
     <a class="brand" href="#home" aria-label="101st Hunter Squadron">
-      <img src="assets/img/dragon.webp" alt="" width="40" height="40">
-      <span><b>101st HUNTERS</b><small data-i18n="brand.sub">AVCI FİLOSU</small></span>
+      <img src="assets/img/dragon.webp" alt="" width="42" height="42">
+      <span><b>101st HUNTERS</b><small data-i18n="brand.sub">Avcı Filosu</small></span>
     </a>
     <nav class="nav" id="nav" aria-label="Ana menü">
       <a href="#about" data-i18n="nav.about">Hakkımızda</a>
       <a href="#servers" data-i18n="nav.servers">Sunucular</a>
-      <a href="#map" data-i18n="nav.map">Canlı Harita</a>
       <a href="#leaderboards" data-i18n="nav.boards">Sıralamalar</a>
       <a href="#operations" data-i18n="nav.ops">Operasyonlar</a>
-      <a href="#academy" data-i18n="nav.academy">Akademi</a>
       <a href="#gallery" data-i18n="nav.gallery">Galeri</a>
       <a href="#join" data-i18n="nav.join">Katıl</a>
     </nav>
@@ -40,7 +37,7 @@
       <div class="lang" role="group" aria-label="Dil / Language">
         <button type="button" data-lang="tr">TR</button><button type="button" data-lang="en">EN</button>
       </div>
-      <a class="btn btn-gold btn-sm" href="https://hq.101huntersqn.com/" rel="noopener">
+      <a class="btn btn-sm login-btn" href="https://hq.101huntersqn.com/" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
         <span data-i18n="nav.login">Üye Girişi</span>
       </a>
@@ -54,27 +51,24 @@
 <main>
   <!-- ── HERO ─────────────────────────────────────────────────────────── -->
   <section class="hero" id="home">
-    <div class="hero-media">
-      <img src="assets/img/hero.webp" alt="">
-      <video id="heroVideo" muted loop playsinline preload="none" poster="assets/img/hero.webp" aria-hidden="true"></video>
-    </div>
+    <div class="hero-media"><img src="assets/img/gallery/aa--2.webp" alt=""></div>
     <div class="hero-inner">
-      <img class="hero-emblem" src="assets/img/dragon.webp" alt="101st Hunter Squadron amblemi" width="170" height="170">
+      <img class="hero-emblem" src="assets/img/dragon.webp" alt="101st Hunter Squadron amblemi" width="132" height="132">
       <div class="eyebrow" data-i18n="hero.eyebrow">DCS World · Sanal Avcı Filosu · Adana</div>
       <h1>101st <span>Hunter</span> Squadron</h1>
       <p class="motto">"There are 2 types of squadrons; Hunters and our targets."</p>
       <div class="hero-cta">
-        <a class="btn btn-fire" href="/basvuru" data-i18n="hero.join">Filoya Katıl</a>
+        <a class="btn btn-sun" href="/basvuru" data-i18n="hero.join">Filoya Katıl</a>
         <a class="btn btn-ghost" href="https://discord.com/invite/101huntersqn" rel="noopener" target="_blank">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.3 18.3 0 0 0-5.5 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2a12.9 12.9 0 0 1-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2a19.8 19.8 0 0 0 6-3c.5-5.2-.9-9.7-3.6-13.7ZM8 15.4c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.6 8 10.6s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>
           Discord
         </a>
       </div>
-      <div class="live-strip" id="liveStrip" aria-live="polite">
-        <span class="dot" id="liveDot"></span><span id="liveText" data-i18n="live.checking">Sunucular kontrol ediliyor…</span>
+      <div class="hero-chips">
+        <span class="chip" aria-live="polite"><span class="dot" id="liveDot"></span><span id="liveText" data-i18n="live.checking">Sunucular kontrol ediliyor…</span></span>
+        <span class="chip">🗓️ <span id="nextSortie">—</span></span>
       </div>
     </div>
-    <div class="scroll-cue" aria-hidden="true">▼</div>
   </section>
 
   <!-- ── STATS ────────────────────────────────────────────────────────── -->
@@ -90,28 +84,23 @@
   <!-- ── ABOUT ────────────────────────────────────────────────────────── -->
   <section id="about">
     <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow" data-i18n="about.eyebrow">Biz Kimiz</div>
-        <h2 data-i18n="about.title">Avcılar Hakkında</h2>
-      </div>
       <div class="about-grid">
         <div class="about-photo reveal">
-          <img src="assets/img/gallery/screen-260104-02355.webp" alt="101 Hunters ejderha amblemli F-16 kuyruğu" loading="lazy">
+          <img src="assets/img/gallery/screen-260104-02351.webp" alt="101 Hunters F-16 uçuşu" loading="lazy">
           <img class="patch" src="assets/img/patch.webp" alt="" loading="lazy">
         </div>
         <div class="about-text reveal">
-          <h3 data-i18n="about.lead">Elit bir DCS sanal avcı filosu.</h3>
+          <div class="eyebrow" data-i18n="about.eyebrow">Biz Kimiz</div>
+          <h2 style="font-size:clamp(28px,4vw,40px);margin:10px 0 18px" data-i18n="about.title">Avcılar Hakkında</h2>
           <p data-i18n="about.p1">101st Hunter Squadron, en gerçekçi muharebe uçuş simülasyonu deneyimini yaşatmaya adanmış bir DCS World sanal avcı filosudur. Adana merkezli filomuz, taktik mükemmelliğe ve gerçekçi askeri havacılığa tutkuyla bağlı pilotları bir araya getirir.</p>
           <p data-i18n="about.p2">Ağırlıklı olarak F-16 Fighting Falcon ve F/A-18C Hornet uçuruyor; hem hava-hava muharebede hem de hassas hava-yer görevlerinde ustalaşıyoruz. Takım çalışması, sürekli eğitim ve en yüksek muharebe standartları filomuzun temelidir.</p>
           <div class="aircraft">
             <div><b>🦅 F-16C Viper</b><span data-i18n="ac.f16">Çok rollü ana platform</span></div>
             <div><b>🐝 F/A-18C Hornet</b><span data-i18n="ac.f18">Uçak gemisi operasyonları</span></div>
             <div><b>🐱 F-14 Tomcat</b><span data-i18n="ac.f14">Filo savunma önleyicisi</span></div>
-            <div><b>👻 F-4 Phantom II</b><span data-i18n="ac.f4">Efsanevi çok rollü</span></div>
             <div><b>🦅 F-15C/E Eagle</b><span data-i18n="ac.f15">Hava üstünlüğü ve taarruz</span></div>
             <div><b>🚁 AH-64D · Ka-50</b><span data-i18n="ac.helo">Taarruz helikopterleri</span></div>
             <div><b>✈️ Su-27 · Su-33 · Su-25T</b><span data-i18n="ac.su">Rus jetleri ve CAS</span></div>
-            <div><b>🎯 <span data-i18n="ac.tac.t">Taktik Odak</span></b><span data-i18n="ac.tac">Gerçek dünya taktikleri</span></div>
           </div>
         </div>
       </div>
@@ -130,27 +119,11 @@
     </div>
   </section>
 
-  <!-- ── LIVE MAP ─────────────────────────────────────────────────────── -->
-  <section id="map">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div class="eyebrow" data-i18n="map.eyebrow">Gerçek Zamanlı</div>
-        <h2 data-i18n="map.title">Canlı Operasyon Haritası</h2>
-        <p data-i18n="map.lead">Sunuculardaki uçakların anlık konumu. Mavi: dost, kırmızı: düşman.</p>
-      </div>
-      <div class="map-tabs" id="mapTabs"></div>
-      <div class="panel map-box reveal">
-        <div id="mapCanvas" aria-label="Canlı harita"></div>
-        <div class="map-empty" id="mapEmpty"><div>📡 <span data-i18n="map.empty">Şu anda havada pilot yok. Sunucularda uçuş başladığında uçaklar burada görünür.</span></div></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── LEADERBOARDS ─────────────────────────────────────────────────── -->
-  <section id="leaderboards" class="section-alt">
+  <section id="leaderboards">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow" data-i18n="boards.eyebrow">Hall of Fame</div>
+        <div class="eyebrow" data-i18n="boards.eyebrow">Onur Kürsüsü</div>
         <h2 data-i18n="boards.title">Sıralamalar</h2>
         <p data-i18n="boards.lead">Filo pilotlarının sunucularımızdaki canlı istatistikleri.</p>
       </div>
@@ -166,7 +139,7 @@
   </section>
 
   <!-- ── OPERATIONS ───────────────────────────────────────────────────── -->
-  <section id="operations">
+  <section id="operations" class="section-alt">
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow" data-i18n="ops.eyebrow">Ne Yapıyoruz</div>
@@ -179,33 +152,6 @@
         <article class="panel card reveal"><div class="ico">🏆</div><h3 data-i18n="ops.4.t">Rekabetçi Etkinlikler</h3><p data-i18n="ops.4">Turnuvalar, Red Flag tatbikatları ve Avcıların sanal gökyüzündeki üstünlüğünü kanıtladığı etkinlikler.</p></article>
         <article class="panel card reveal"><div class="ico">📡</div><h3 data-i18n="ops.5.t">Görev Planlama</h3><p data-i18n="ops.5">Detaylı brifingler, taktik planlama ve debrifingler. Gerçek askeri planlama ve icra usullerini öğrenin.</p></article>
         <article class="panel card reveal"><div class="ico">🎮</div><h3 data-i18n="ops.6.t">Serbest Uçuşlar</h3><p data-i18n="ops.6">Her sorti ciddi olmak zorunda değil! Filo arkadaşlarınızla serbest uçuşlar ve eğlenceli etkinlikler.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ACADEMY ──────────────────────────────────────────────────────── -->
-  <section id="academy" class="section-alt">
-    <div class="wrap">
-      <div class="panel academy reveal">
-        <div>
-          <div class="eyebrow" data-i18n="academy.eyebrow">Eğitim Platformu</div>
-          <h2 style="font-size:clamp(24px,3.4vw,34px);margin-top:12px">101 Hunter Academy</h2>
-          <p style="color:#c9cde0;margin-top:14px" data-i18n="academy.lead">F-16C, F/A-18C, F-14, F-4, F-15C/E, AH-64D, Ka-50, Su-25T, Su-33 ve Su-27 için kapsamlı eğitim platformumuz. Kokpit tanıtımları, quiz'ler, taktik okulları ve topluluk özellikleriyle pilotlarımızı en üst seviyeye taşıyoruz.</p>
-          <ul>
-            <li data-i18n="academy.f1">📚 Etkileşimli eğitim modülleri</li>
-            <li data-i18n="academy.f2">🧠 Quiz ve bilgi testleri</li>
-            <li data-i18n="academy.f3">🎛️ Kokpit tanıtımları</li>
-            <li data-i18n="academy.f4">🎙️ Sesli oda (Premium)</li>
-            <li data-i18n="academy.f5">⚔️ 1v1 düello modu</li>
-            <li data-i18n="academy.f6">📊 Pilot istatistikleri</li>
-          </ul>
-          <div class="store">
-            <span class="btn btn-ghost btn-sm">App Store · <span data-i18n="academy.soon">Yakında</span></span>
-            <span class="btn btn-ghost btn-sm">Google Play · <span data-i18n="academy.soon">Yakında</span></span>
-            <span class="btn btn-ghost btn-sm">Web App · <span data-i18n="academy.soon">Yakında</span></span>
-          </div>
-        </div>
-        <div class="phone" aria-hidden="true"><img src="assets/img/dragon.webp" alt=""></div>
       </div>
     </div>
   </section>
@@ -250,19 +196,19 @@
   <!-- ── JOIN ─────────────────────────────────────────────────────────── -->
   <section id="join">
     <div class="wrap">
-      <div class="panel join reveal">
+      <div class="join reveal">
         <div class="eyebrow" data-i18n="join.eyebrow">Avlanmaya Hazır Mısın?</div>
         <h2 data-i18n="join.title">Avcılara Katıl</h2>
         <p data-i18n="join.lead">101st Hunter Squadron, elit bir sanal filonun parçası olmak isteyen motive pilotları arıyor. Mükemmellik değil, kararlılık arıyoruz.</p>
-        <div class="reqs">
-          <div><b data-i18n="req.hw.t">🕹️ Donanım</b><span data-i18n="req.hw">HOTAS ve baş takip sistemi (TrackIR / VR / OpenTrack) zorunludur.</span></div>
-          <div><b data-i18n="req.mod.t">✈️ Modül</b><span data-i18n="req.mod">DCS: F-16C Viper veya F/A-18C Hornet modüllerinden en az biri.</span></div>
-          <div><b data-i18n="req.cal.t">📅 Takvim</b><span data-i18n="req.cal">Cuma 21:00 (Eğitim) ve Cumartesi 21:00 (Harekât) sortilerine düzenli katılım.</span></div>
-          <div><b data-i18n="req.disc.t">📜 Disiplin</b><span data-i18n="req.disc">Mazeretsiz 3 devamsızlıkta filoyla ilişik kesilir.</span></div>
+        <div class="steps">
+          <div><b data-i18n="step.1.t">Başvur</b><span data-i18n="step.1">Kısa formu doldur; HOTAS, baş takip ve F-16C ya da F/A-18C modülü yeterli.</span></div>
+          <div><b data-i18n="step.2.t">Tanışalım</b><span data-i18n="step.2">Discord'da kısa bir sesli mülakat yapıyoruz.</span></div>
+          <div><b data-i18n="step.3.t">Eğitim</b><span data-i18n="step.3">Cuma 21:00 eğitim sortilerinde kol uçuşu ve havada ikmal öğreniyorsun.</span></div>
+          <div><b data-i18n="step.4.t">Check-ride</b><span data-i18n="step.4">Sınavı geçince muharip pilot olarak Cumartesi harekâtlarına katılıyorsun.</span></div>
         </div>
         <div class="hero-cta">
-          <a class="btn btn-fire" href="/basvuru" data-i18n="join.apply">Başvuru Formu</a>
-          <a class="btn btn-ghost" href="101_Hunter_SQN_Kurallari.pdf" target="_blank" data-i18n="join.rules">Filo Tüzüğü (PDF)</a>
+          <a class="btn btn-sun" href="/basvuru" data-i18n="join.apply">Başvuru Formu</a>
+          <a class="btn btn-ghost" href="https://discord.com/invite/101huntersqn" target="_blank" rel="noopener" data-i18n="join.discord">Discord'a Katıl</a>
         </div>
       </div>
     </div>
@@ -273,17 +219,8 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="#home"><img src="assets/img/dragon.webp" alt="" width="40" height="40"><span><b>101st HUNTERS</b><small>ADANA · 2025</small></span></a>
-        <p style="color:var(--muted);font-size:14px;margin-top:14px;max-width:360px" data-i18n="foot.about">DCS World sanal avcı filosu. Gerçek taktikler, düzenli eğitim ve güçlü bir topluluk.</p>
-      </div>
-      <div>
-        <h4 data-i18n="foot.docs">Belgeler</h4>
-        <ul>
-          <li><a href="101_Hunter_SQN_Kurallari.pdf" target="_blank" data-i18n="foot.rules">Filo Tüzüğü</a></li>
-          <li><a href="101_Hunter_SQN_CheckRide_Egitim_Rehberi.pdf" target="_blank" data-i18n="foot.guide">Check-Ride Eğitim Rehberi</a></li>
-          <li><a href="101_Hunter_SQN_CheckRide_Sinav_Belgesi.pdf" target="_blank" data-i18n="foot.exam">Check-Ride Sınav Belgesi</a></li>
-          <li><a href="/checkride" data-i18n="foot.form">Check-Ride Değerlendirme Formu</a></li>
-        </ul>
+        <a class="brand" href="#home"><img src="assets/img/dragon.webp" alt="" width="42" height="42"><span><b>101st HUNTERS</b><small>Adana · 2025</small></span></a>
+        <p style="font-size:14.5px;margin-top:16px;max-width:380px" data-i18n="foot.about">DCS World sanal avcı filosu. Gerçek taktikler, düzenli eğitim ve güçlü bir topluluk.</p>
       </div>
       <div>
         <h4 data-i18n="foot.links">Bağlantılar</h4>
@@ -307,7 +244,6 @@
 </div>
 <div class="toast" id="toast" hidden role="status"></div>
 
-<script src="vendor/leaflet/leaflet.js" defer></script>
 <script src="js/i18n.js" defer></script>
 <script src="js/site.js" defer></script>
 <script src="js/music.js" defer></script>

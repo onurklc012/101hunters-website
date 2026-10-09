@@ -63,15 +63,38 @@
     }), { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-    // The 13 MB hero video only on big screens, not on phones / data saver / reduced motion.
-    const video = $('#heroVideo');
-    const lowData = navigator.connection?.saveData || matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (video && !lowData && matchMedia('(min-width: 900px)').matches) {
-      video.src = 'assets/video/hero-bg.mp4';
-      video.play().catch(() => {});
-    }
     const year = $('#year');
     if (year) year.textContent = new Date().getFullYear();
+  }
+
+  // ── next squadron sortie: Friday 21:00 training, Saturday 21:00 operations (Turkey, UTC+3) ──
+  const SORTIES = [{ day: 5, key: 'sortie.training' }, { day: 6, key: 'sortie.ops' }];
+  const TR_OFFSET_H = 3;                          // Turkey has no daylight saving time
+
+  function nextSortie(now = new Date()) {
+    let best = null;
+    for (const s of SORTIES) {
+      // 21:00 Turkey time = 18:00 UTC on that weekday
+      const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 21 - TR_OFFSET_H));
+      d.setUTCDate(d.getUTCDate() + ((s.day - d.getUTCDay() + 7) % 7));
+      if (d.getTime() + 2 * 3600e3 < now.getTime()) d.setUTCDate(d.getUTCDate() + 7);   // over = next week
+      if (!best || d < best.at) best = { at: d, key: s.key };
+    }
+    return best;
+  }
+
+  function renderSortie() {
+    const el = $('#nextSortie');
+    if (!el) return;
+    const { at, key } = nextSortie();
+    const ms = at.getTime() - Date.now();
+    let when;
+    if (ms <= 0) when = t('sortie.now');
+    else {
+      const d = Math.floor(ms / 86400e3), hrs = Math.floor((ms % 86400e3) / 3600e3), min = Math.floor((ms % 3600e3) / 60e3);
+      when = d > 0 ? t('sortie.dh', { d, h: hrs }) : hrs > 0 ? t('sortie.hm', { h: hrs, m: min }) : t('sortie.m', { m: min });
+    }
+    el.textContent = `${t(key)} · ${when}`;
   }
 
   // ── squadron numbers ────────────────────────────────────────────────────
@@ -186,51 +209,6 @@
     });
   }
 
-  // ── live map ────────────────────────────────────────────────────────────
-  let map, layer, mapData = null, mapServer = null, fitted = false;
-
-  function ensureMap() {
-    if (map || !window.L || !$('#mapCanvas')) return !!map;
-    map = L.map('mapCanvas', { zoomControl: true, attributionControl: true, worldCopyJump: true }).setView([36.6, 37.5], 6);
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom: 13, attribution: 'Tiles © Esri',
-    }).addTo(map);
-    layer = L.layerGroup().addTo(map);
-    return true;
-  }
-
-  function renderMap() {
-    const tabs = $('#mapTabs');
-    const empty = $('#mapEmpty');
-    if (!tabs || !ensureMap()) return;
-    const servers = mapData?.servers || [];
-    if (!servers.find((s) => s.name === mapServer)) { mapServer = servers[0]?.name ?? null; fitted = false; }
-    tabs.replaceChildren(...servers.map((s) => h('button', {
-      class: `tab ${s.name === mapServer ? 'on' : ''}`, type: 'button',
-      onclick: () => { mapServer = s.name; fitted = false; renderMap(); },
-    }, s.name.replace(/^101(st)?\s+Hunters?\s+SQN\s*\|\s*/i, ''), h('span', { class: 'count' }, String(s.aircraft.length)))));
-    layer.clearLayers();
-    const current = servers.find((s) => s.name === mapServer);
-    empty.hidden = !!current?.aircraft.length;
-    if (!current) return;
-    const points = [];
-    for (const a of current.aircraft) {
-      const side = a.side === 'blue' || a.side === 'red' ? a.side : 'neutral';
-      const marker = L.marker([a.lat, a.lon], { icon: L.divIcon({ className: '', html: `<div class="ac-icon ${side}"></div>`, iconSize: [14, 14] }) });
-      const tip = document.createElement('div');
-      tip.append(h('b', {}, a.name || '?'), h('br'), `${a.type || ''} · ${fmt(a.alt_ft)} ft · ${fmt(a.speed_kts)} kts`);
-      marker.bindTooltip(tip, { direction: 'top', offset: [0, -8] });
-      marker.addTo(layer);
-      points.push([a.lat, a.lon]);
-    }
-    if (points.length && !fitted) { map.fitBounds(points, { padding: [40, 40], maxZoom: 8 }); fitted = true; }
-  }
-
-  async function loadMap() {
-    try { mapData = await getJSON('/livemap'); } catch { mapData = null; }
-    renderMap();
-  }
-
   // ── gallery + lightbox ──────────────────────────────────────────────────
   async function setupGallery() {
     const grid = $('#galleryGrid');
@@ -265,11 +243,11 @@
     loadSquadron();
     loadStatus();
     loadBoards();
-    loadMap();
     setInterval(loadStatus, 30000);
-    setInterval(loadMap, 10000);
+    renderSortie();
+    setInterval(renderSortie, 30000);
     setInterval(loadBoards, 300000);
-    document.addEventListener('langchange', () => { renderServers(); renderBoard(); renderMap(); loadSquadron(); });
+    document.addEventListener('langchange', () => { renderServers(); renderBoard(); renderSortie(); loadSquadron(); });
   });
 
   window.SITE = { h, toast, API };
