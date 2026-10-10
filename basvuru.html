@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pilot Başvurusu | 101st Hunter Squadron</title>
-<meta name="description" content="101st Hunter Squadron aday pilot başvuru formu.">
+<title>Üyelik Başvurusu | 101st Hunter Squadron</title>
+<meta name="description" content="101st Hunter Squadron sanal havacılık kulübü üyelik başvuru formu.">
 <meta name="theme-color" content="#1673e6">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Orbitron:wght@700;800&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="css/site.css?v=197f6e4eaa">
+<link rel="stylesheet" href="css/site.css?v=a0e1d0516d">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
   <div class="wrap">
     <a class="brand" href="/" aria-label="101st Hunter Squadron">
       <img src="assets/img/dragon.webp" alt="" width="42" height="42">
-      <span><b>101st HUNTERS</b><small data-i18n="brand.sub">Avcı Filosu</small></span>
+      <span><b>101st HUNTERS</b><small data-i18n="brand.sub">Sanal Uçuş Kulübü</small></span>
     </a>
     <div class="header-actions" style="margin-left:auto">
       <div class="lang" role="group" aria-label="Dil / Language">
@@ -33,8 +33,8 @@
   <div class="page-hero">
     <div class="wrap">
       <div class="eyebrow">101st Hunter Squadron</div>
-      <h1 data-i18n="ap.title">Aday Pilot Başvurusu</h1>
-      <p data-i18n="ap.lead">Formu eksiksiz doldurun. Başvurunuz doğrudan filo karargahına ulaşır; sesli toplantı için Discord üzerinden sizinle iletişime geçeceğiz.</p>
+      <h1 data-i18n="ap.title">Üyelik Başvurusu</h1>
+      <p data-i18n="ap.lead">Formu eksiksiz doldurun. Başvurunuz kulüp yönetimine ulaşır; size Discord üzerinden dönüş yaparız.</p>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
     <div id="formArea">
       <form class="panel apply-form" id="applyForm" novalidate>
         <fieldset>
-          <legend data-i18n="ap.s1">👤 Pilot Bilgileri</legend>
+          <legend data-i18n="ap.s1">👤 Kişisel Bilgiler</legend>
           <div class="row">
             <label class="field"><span><b data-i18n="ap.name">İsim Soyisim</b> <i>*</i></span><input type="text" name="full_name" maxlength="80" required autocomplete="name"></label>
             <label class="field"><span><b data-i18n="ap.discord">Discord kullanıcı adı</b> <i>*</i></span><input type="text" name="discord" maxlength="60" required autocomplete="off"></label>
@@ -91,26 +91,26 @@
         </fieldset>
 
         <fieldset>
-          <legend data-i18n="ap.s3">📜 Takvim & Disiplin</legend>
+          <legend data-i18n="ap.s3">📜 Takvim &amp; Kurallar</legend>
           <div class="field"><span class="field-label"><b data-i18n="ap.sched">Cuma 21:00 ve Cumartesi 21:00 uçuşlarına düzenli katılır mısınız?</b> <i>*</i></span>
             <div class="choices">
               <label class="choice"><input type="radio" name="schedule" value="yes" required><span data-i18n="ap.yes">Evet, kesinlikle katılırım.</span></label>
               <label class="choice"><input type="radio" name="schedule" value="sometimes"><span data-i18n="ap.some">Bazen aksayabilir.</span></label>
             </div>
           </div>
-          <div class="field"><span class="field-label"><b data-i18n="ap.rules">"3 mazeretsiz devamsızlıkta kalıcı ihraç" kuralını kabul ediyor musunuz?</b> <i>*</i></span>
+          <div class="field"><span class="field-label"><b data-i18n="ap.rules">"Haber vermeden 3 etkinliğe katılmayan üyenin üyeliği sona erer" kuralını kabul ediyor musunuz?</b> <i>*</i></span>
             <div class="choices">
               <label class="choice"><input type="radio" name="rules" value="yes" required><span data-i18n="ap.accept">Okudum, kabul ediyorum.</span></label>
               <label class="choice"><input type="radio" name="rules" value="no"><span data-i18n="ap.reject">Kabul etmiyorum.</span></label>
             </div>
           </div>
-          <label class="field"><span><b data-i18n="ap.why">Neden 101. Avcı Filosu?</b></span>
+          <label class="field"><span><b data-i18n="ap.why">Neden 101st Hunter Squadron?</b></span>
             <textarea name="message" maxlength="2000" data-i18n-ph="ap.why.p" placeholder="Kendinizden ve beklentilerinizden kısaca bahsedin."></textarea></label>
         </fieldset>
 
         <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
         <div class="form-error" id="formError" hidden role="alert"></div>
-        <button class="btn btn-fire" type="submit" style="justify-self:start;padding:15px 28px" data-i18n="ap.send">🚀 Başvuruyu Karargaha Gönder</button>
+        <button class="btn btn-fire" type="submit" style="justify-self:start;padding:15px 28px" data-i18n="ap.send">🚀 Başvuruyu Gönder</button>
       </form>
     </div>
 
@@ -119,17 +119,18 @@
       <ul>
         <li data-i18n="ap.side.1">HOTAS ve baş takip sistemi (TrackIR / VR / OpenTrack).</li>
         <li data-i18n="ap.side.2">DCS: F-16C Viper veya F/A-18C Hornet.</li>
-        <li data-i18n="ap.side.3">Cuma 21:00 (Eğitim) ve Cumartesi 21:00 (Harekât).</li>
-        <li data-i18n="ap.side.4">3 mazeretsiz devamsızlık = ihraç.</li>
-        <li data-i18n="ap.side.5">Kabul edilen adaylar check-ride'ı (AAR: en fazla 5 kontakla 6.000 lbs + kol uçuşu) geçene kadar eğitim sortilerinde uçar.</li>
+        <li data-i18n="ap.side.3">Cuma 21:00 (Eğitim Uçuşu) ve Cumartesi 21:00 (Görev Gecesi).</li>
+        <li data-i18n="ap.side.4">Haber vermeden 3 etkinliğe katılmama = üyeliğin sona ermesi.</li>
+        <li data-i18n="ap.side.5">Kabul edilen üyeler, uçuş değerlendirmesini (AAR: en fazla 5 kontakla 6.000 lbs + kol uçuşu) geçene kadar eğitim uçuşlarına katılır.</li>
       </ul>
       <a class="btn btn-sky btn-sm" href="https://discord.gg/101huntersqn" target="_blank" rel="noopener" data-i18n="ap.discord">Discord Sunucumuz</a>
     </aside>
   </div>
+  <div class="wrap"><p class="disclaimer" data-i18n="foot.disclaimer">101st Hunter Squadron, DCS World uçuş simülasyonu oyununu oynayan kişilerden oluşan tamamen sanal bir havacılık kulübü ve oyun topluluğudur. Askeri bir yapı değiliz; hiçbir askeri birlik, devlet kurumu ya da resmi kuruluşla bağlantımız yoktur ve hiçbirini temsil etmeyiz. Sitedeki eğitim, görev ve uçuş ifadeleri yalnızca oyun içindeki etkinlikleri anlatır. Eagle Dynamics ile de bir bağlantımız yoktur.</p></div>
 </main>
 
 <div class="toast" id="toast" hidden role="status"></div>
-<script src="js/i18n.js?v=4d2169f00c" defer></script>
+<script src="js/i18n.js?v=70e2c54c40" defer></script>
 <script src="js/site.js?v=f0b46d050f" defer></script>
 <script src="js/music.js?v=753597f70d" defer></script>
 <script src="js/apply.js?v=9d2ef11207" defer></script>
